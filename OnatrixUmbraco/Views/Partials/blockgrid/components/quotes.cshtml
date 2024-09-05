@@ -1,0 +1,33 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var quoteText = Model.Content.Value<string>("quoteText");
+
+    var quoteSize = Model.Content.Value<string>("quoteSize");
+    var sizeClass = quoteSize switch 
+    {
+        "xs" => "text-xs",
+        "s" => "text-s",
+        "m" => "text-m",
+        "l" => "text-lg",
+        "xl" => "text-xl",
+        "xxl" => "text-lead",
+        _ => "text-md"
+    };    
+
+    var quoteStyle = Model.Content.Value<string>("quoteStyle");    
+    var styleClass = quoteStyle switch
+    {
+        "Italic" => "fst-italic",
+        _ => "fst-regular"
+    };
+
+    var quoteClass = $"{sizeClass} {styleClass}";
+    
+}
+
+<q class="@quoteClass">
+    @quoteText
+</q>

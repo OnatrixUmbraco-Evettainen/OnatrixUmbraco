@@ -1,0 +1,50 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.Blocks;
+@using Umbraco.Cms.Core.PropertyEditors.ValueConverters;
+
+
+@{
+    var sectionTitle = Model?.Content.Value<string>("sectionTitle") ?? "";
+    var sectionId = sectionTitle?.ToString().ToLower().Trim().Replace(" ", "-");
+
+    var spacingTopClass = Model.Content.Value<bool>("addSpaceToTop") ? "padding-t" : "";
+    var spacingBottomClass = Model.Content.Value<bool>("addSpaceToBottom") ? "padding-b" : "";
+
+    
+
+    
+
+    var sectionBackgroundColor = Model.Content.Value<string>("sectionBackgroundColor") ?? "";
+
+    
+    var containsColumns = Model.Areas?.Any(area => area.Any(column => column.Content.ContentType.Alias == "columns")) ?? false;
+
+}
+
+<section id="@sectionId" class="@spacingTopClass @spacingBottomClass" style="@(string.IsNullOrEmpty(sectionBackgroundColor) ? "" : $"background-color: {sectionBackgroundColor};")">
+    <div class="container">
+        @if (containsColumns)
+        {
+            @foreach (var area in Model.Areas)
+            {
+                <div class="row">
+                    @foreach (var column in area)
+                    {
+                        @await Html.PartialAsync("~/Views/Partials/blockgrid/components/columns.cshtml", column)
+                        <!-- if (column.Content.ContentType.Alias == "columns")
+                        {
+                            @await Html.PartialAsync("~/Views/Partials/blockgrid/components/columns.cshtml", column)
+                        } -->
+                    }
+                </div>
+            }
+        }
+        else {
+            <div class="content">
+                @await Html.GetBlockGridItemAreasHtmlAsync(Model)
+            </div>
+        }
+    </div>
+</section>

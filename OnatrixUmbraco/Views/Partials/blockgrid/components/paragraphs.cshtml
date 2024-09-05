@@ -1,0 +1,33 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var paragraphText = Model.Content.Value<string>("paragraphText");
+
+    var paragraphSize = Model.Content.Value<string>("paragraphSize");
+    var sizeClass = paragraphSize switch 
+    {
+        "xs" => "text-xs",
+        "s" => "text-s",
+        "m" => "text-m",
+        "l" => "text-lg",
+        "xl" => "text-xl",
+        "xxl" => "text-lead",
+        _ => "text-md"
+    };    
+
+    var paragraphStyle = Model.Content.Value<string>("paragraphStyle");
+    var styleClass = paragraphStyle switch
+    {
+        "Italic" => "fst-italic",
+        _ => "fst-regular"
+    };
+
+    var paragraphClass = $"{sizeClass} {styleClass}";
+
+}
+
+<p class="@paragraphClass">
+    @paragraphText
+</p>
