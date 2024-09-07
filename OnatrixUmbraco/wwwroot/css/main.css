@@ -17,7 +17,7 @@ body {
 
 img, picture, video, canvas, svg {
   display: block;
-  width: 100%;
+  max-width: 100%;
 }
 
 input, button, textarea, select {
@@ -48,15 +48,52 @@ ul[role=list], ol[role=list] {
   --clr-neutral: #ffffff;
   --clr-white: #F2EDDC;
   --clr-white-100: #F7F7F7;
-  --clr-black: #0E0E0E;
-  --clr-main-regular: #4F5955;
+  --clr-dark: #0E0E0E;
+  --clr-primary: #4F5955;
   --clr-main-light: #606966;
-  --clr-sub1: #F2EDDC;
-  --clr-sub3: #D9C3A9;
+  --clr-accent: #F2EDDC;
+  --clr-secondary: #D9C3A9;
   --clr-body-text: #535656;
   --clr-body-text-100: #999999;
   --clr-note1: #9C9EA6;
   --clr-border-gray: #EAEAEA;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: 100vh;
+}
+
+.section-wrapper {
+  position: relative;
+  height: 100%;
+}
+
+.padding-tb {
+  padding-top: clamp(2rem, 1.1111rem + 4.4444vw, 5rem);
+  padding-bottom: clamp(2rem, 1.1111rem + 4.4444vw, 5rem);
+}
+
+.padding-t {
+  padding-top: clamp(2rem, 1.1111rem + 4.4444vw, 5rem);
+}
+
+.padding-b {
+  padding-bottom: clamp(2rem, 1.1111rem + 4.4444vw, 5rem);
+}
+
+.margin-tb {
+  margin-top: clamp(2rem, 1.1111rem + 4.4444vw, 5rem);
+  margin-bottom: clamp(2rem, 1.1111rem + 4.4444vw, 5rem);
+}
+
+.margin-t {
+  margin-top: clamp(2rem, 1.1111rem + 4.4444vw, 5rem);
+}
+
+.margin-b {
+  margin-bottom: clamp(2rem, 1.1111rem + 4.4444vw, 5rem);
 }
 
 .umb-block-grid__layout-container {
@@ -71,6 +108,8 @@ ul[role=list], ol[role=list] {
 
 .umb-block-grid__layout-item {
   position: relative;
+  display: flex;
+  flex-direction: column;
   /* For small devices we scale columnSpan by three, to make everything bigger than 1/3 take full width: */
   grid-column-end: span min(var(--umb-block-grid--item-column-span, 1) * 3, var(--umb-block-grid--grid-columns));
   grid-row: span var(--umb-block-grid--item-row-span, 1);
@@ -108,7 +147,7 @@ ul[role=list], ol[role=list] {
 h1 {
   line-height: 120%;
   font-weight: 700;
-  color: var(--clr-main-regular);
+  color: var(--clr-primary);
   font-family: "Poppins", "sans-serif";
   text-wrap: balance;
   margin: 0;
@@ -118,7 +157,7 @@ h1 {
 h2 {
   line-height: 120%;
   font-weight: 700;
-  color: var(--clr-main-regular);
+  color: var(--clr-primary);
   font-family: "Poppins", "sans-serif";
   text-wrap: balance;
   margin: 0;
@@ -128,18 +167,17 @@ h2 {
 h3 {
   line-height: 120%;
   font-weight: 700;
-  color: var(--clr-main-regular);
+  color: var(--clr-primary);
   font-family: "Poppins", "sans-serif";
   text-wrap: balance;
   margin: 0;
   font-size: 0.875rem;
-  color: var(--clr-sub3);
 }
 
 h4 {
   line-height: 120%;
   font-weight: 700;
-  color: var(--clr-main-regular);
+  color: var(--clr-primary);
   font-family: "Poppins", "sans-serif";
   text-wrap: balance;
   margin: 0;
@@ -150,7 +188,7 @@ h4 {
 h5 {
   line-height: 120%;
   font-weight: 700;
-  color: var(--clr-main-regular);
+  color: var(--clr-primary);
   font-family: "Poppins", "sans-serif";
   text-wrap: balance;
   margin: 0;
@@ -162,6 +200,7 @@ h5 {
   font-weight: 400;
   color: var(--clr-body-text);
   font-family: "Poppins", "sans-serif";
+  margin: 0;
   font-size: 0.8125rem;
 }
 
@@ -170,6 +209,7 @@ h5 {
   font-weight: 400;
   color: var(--clr-body-text);
   font-family: "Poppins", "sans-serif";
+  margin: 0;
   font-size: 0.875rem;
 }
 
@@ -178,6 +218,7 @@ h5 {
   font-weight: 400;
   color: var(--clr-body-text);
   font-family: "Poppins", "sans-serif";
+  margin: 0;
   font-size: 1rem;
 }
 
@@ -186,6 +227,7 @@ h5 {
   font-weight: 400;
   color: var(--clr-body-text);
   font-family: "Poppins", "sans-serif";
+  margin: 0;
   font-size: 1.125rem;
 }
 
@@ -194,6 +236,7 @@ h5 {
   font-weight: 400;
   color: var(--clr-body-text);
   font-family: "Poppins", "sans-serif";
+  margin: 0;
   font-size: 1.25rem;
 }
 
@@ -202,5 +245,182 @@ h5 {
   font-weight: 400;
   color: var(--clr-body-text);
   font-family: "Poppins", "sans-serif";
+  margin: 0;
   font-size: 1.875rem;
+}
+
+.text-primary {
+  color: var(--clr-primary);
+}
+
+.text-secondary {
+  color: var(--clr-secondary);
+}
+
+.text-accent {
+  color: var(--clr-accent);
+}
+
+footer {
+  background-color: var(--clr-dark);
+  padding: 1rem 0;
+}
+footer .text-s {
+  text-align: center;
+}
+@media (min-width: 576px) {
+  footer .text-s {
+    text-align: start;
+  }
+}
+footer .text-s a {
+  text-decoration: none;
+  color: var(--clr-secondary);
+}
+footer .text-s a:hover {
+  text-decoration: underline;
+}
+
+.success-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex-grow: 1;
+  text-align: center;
+  padding: 2rem;
+}
+.success-card span {
+  font-size: clamp(3rem, 2.037rem + 4.8148vw, 6.25rem);
+  color: var(--clr-secondary);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.success-card .text-lg {
+  color: #FFFFFF;
+  flex-grow: 1;
+}
+
+.background-color {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  z-index: -1;
+}
+
+@media (min-width: 768px) {
+  .bg-height-5 {
+    height: 5%;
+  }
+}
+
+@media (min-width: 768px) {
+  .bg-height-10 {
+    height: 10%;
+  }
+}
+
+@media (min-width: 768px) {
+  .bg-height-15 {
+    height: 15%;
+  }
+}
+
+@media (min-width: 768px) {
+  .bg-height-20 {
+    height: 20%;
+  }
+}
+
+@media (min-width: 768px) {
+  .bg-height-25 {
+    height: 25%;
+  }
+}
+
+@media (min-width: 768px) {
+  .bg-height-30 {
+    height: 30%;
+  }
+}
+
+@media (min-width: 768px) {
+  .bg-height-35 {
+    height: 35%;
+  }
+}
+
+@media (min-width: 768px) {
+  .bg-height-40 {
+    height: 40%;
+  }
+}
+
+@media (min-width: 768px) {
+  .bg-height-45 {
+    height: 45%;
+  }
+}
+
+@media (min-width: 768px) {
+  .bg-height-50 {
+    height: 50%;
+  }
+}
+
+@media (min-width: 768px) {
+  .bg-height-55 {
+    height: 55%;
+  }
+}
+
+@media (min-width: 768px) {
+  .bg-height-60 {
+    height: 60%;
+  }
+}
+
+@media (min-width: 768px) {
+  .bg-height-65 {
+    height: 65%;
+  }
+}
+
+@media (min-width: 768px) {
+  .bg-height-75 {
+    height: 75%;
+  }
+}
+
+@media (min-width: 768px) {
+  .bg-height-80 {
+    height: 80%;
+  }
+}
+
+@media (min-width: 768px) {
+  .bg-height-85 {
+    height: 85%;
+  }
+}
+
+@media (min-width: 768px) {
+  .bg-height-90 {
+    height: 90%;
+  }
+}
+
+@media (min-width: 768px) {
+  .bg-height-95 {
+    height: 95%;
+  }
+}
+
+@media (min-width: 768px) {
+  .bg-height-100 {
+    height: 100%;
+  }
 }

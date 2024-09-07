@@ -1,0 +1,15 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.Blocks;
+@{
+    var successCards = Model.Content.Value<IEnumerable<BlockListItem>>("successCards");
+}
+
+ <div class="row mt-4 mb-5">
+    @foreach (var card in successCards) 
+    {
+        @await Html.PartialAsync("~/Views/Partials/blocklist/components/successCard.cshtml", card)
+
+    }
+</div>

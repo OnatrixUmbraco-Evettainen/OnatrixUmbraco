@@ -1,0 +1,21 @@
+.success-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 1;
+    text-align: center;
+    padding: 2rem;
+
+    span {
+        font-size: clamp(3rem, 2.037rem + 4.8148vw, 6.25rem);
+        color: var(--clr-secondary);
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    .text-lg {
+        color: #FFFFFF;
+        flex-grow: 1;
+    }
+}

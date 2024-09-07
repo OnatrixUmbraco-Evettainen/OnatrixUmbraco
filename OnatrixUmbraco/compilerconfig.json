@@ -1,6 +1,6 @@
 ﻿[
   {
-    "outputFile": "wwwroot/css/mian.css",
-    "inputFile": "wwwroot/css/scss/mian.scss"
+    "outputFile": "wwwroot/css/main.css",
+    "inputFile": "wwwroot/css/main.scss"
   }
 ]

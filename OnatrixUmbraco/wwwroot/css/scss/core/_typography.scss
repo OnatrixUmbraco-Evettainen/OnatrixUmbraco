@@ -4,7 +4,7 @@ $font-manrope: 'Poppins', 'sans-serif';
 @mixin standard-heading {
     line-height: 120%;
     font-weight: 700;
-    color: var(--clr-main-regular);
+    color: var(--clr-primary);
     font-family: $font-manrope;
     text-wrap: balance;
     margin: 0;
@@ -24,7 +24,6 @@ $font-manrope: 'Poppins', 'sans-serif';
 @mixin h3 {
     @include standard-heading;
     font-size: 0.875rem;
-    color: var(--clr-sub3);
 }
 
 @mixin h4 {
@@ -44,7 +43,7 @@ $font-manrope: 'Poppins', 'sans-serif';
     font-weight: 400;
     color: var(--clr-body-text);
     font-family: $font-manrope;
-    
+    margin: 0;
 }
 
 
@@ -122,4 +121,17 @@ h5 {
 
 .text-lead {
     @include text-lead;
+}
+
+
+.text-primary {
+    color: var(--clr-primary);
+}
+
+.text-secondary {
+    color: var(--clr-secondary);
+}
+
+.text-accent {
+    color: var(--clr-accent);
 }

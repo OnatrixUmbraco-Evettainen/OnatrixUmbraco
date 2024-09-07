@@ -1,0 +1,21 @@
+footer {
+    background-color: var(--clr-dark);
+    padding: 1rem 0;
+
+    .text-s {
+        text-align: center;
+
+        @include sm {
+            text-align: start;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--clr-secondary);
+            
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

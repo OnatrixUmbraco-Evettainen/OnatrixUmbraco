@@ -1,0 +1,14 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var successNumbers = Model.Content.Value<int>("successNumbers");
+    var successDescription = Model.Content.Value<string>("successDescription") ?? "";    
+}
+
+
+<div class="success-card col-md-6 col-lg-4">
+    <span>@successNumbers</span>
+    <p class="text-lg">@successDescription</p>
+</div>

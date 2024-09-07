@@ -18,9 +18,18 @@
         _ => "h2"
     };    
     
-    var headlineColor = Model.Content.Value<string>("headlineColor");  
+    var headlineColor = Model?.Content.Value<string>("headlineColor") ?? null;
 }
 
-<@type style="color: @headlineColor">
-    @headingText
-</@type>
+@if (!string.IsNullOrEmpty(headlineColor))
+{
+    <@type style="color: @headlineColor">
+            @headingText
+    </@type>
+}
+else
+{
+    <@type>
+        @headingText
+    </@type>
+}
