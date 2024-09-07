@@ -12,39 +12,18 @@
     var spacingTopClass = Model.Content.Value<bool>("addSpaceToTop") ? "padding-t" : "";
     var spacingBottomClass = Model.Content.Value<bool>("addSpaceToBottom") ? "padding-b" : "";
 
-    
-
-    
-
     var sectionBackgroundColor = Model.Content.Value<string>("sectionBackgroundColor") ?? "";
-
-
     var sectionBackgroundColorHeight = Model.Content.HasValue("sectionColorHeight") ? Model.Content.Value<int>("sectionColorHeight") : 100;  
-    var heightClass = $"bg-height-{sectionBackgroundColorHeight}";
-
-
-
-    var sectionBackgroundImage = Model?.Content.Value<IPublishedContent>("sectionBackgroundImage")?.Url() ?? null;    
-
-    
-    var containsColumns = Model.Areas?.Any(area => area.Any(column => column.Content.ContentType.Alias == "columns")) ?? false;
-    var heightUnit = "%";
+   
+    var sectionBackgroundImage = Model?.Content.Value<IPublishedContent>("sectionBackgroundImage")?.Url() ?? null;  
 }
 
 
 
 <section id="@sectionId" class="section-wrapper @spacingTopClass @spacingBottomClass">
-
     @if(!string.IsNullOrEmpty(sectionBackgroundColor))
     {
-        <div class="background-color @heightClass" style="background-color: @sectionBackgroundColor;"></div>
+        <div class="background-color" data-height="@sectionBackgroundColorHeight" style="background-color: @sectionBackgroundColor;"></div>
     }
-
     @await Html.GetBlockGridItemAreasHtmlAsync(Model)
- 
-    
-    
-
-
-
 </section>

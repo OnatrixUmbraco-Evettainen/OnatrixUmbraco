@@ -17,7 +17,7 @@
     
 
     //var sectionBackgroundColor = Model.Content.Value<string>("sectionBackgroundColor") ?? "";
-    //var sectionBackgroundImage = Model?.Content.Value<IPublishedContent>("sectionBackgroundImage")?.Url() ?? null;    
+    var containerBackgroundImage = Model?.Content.Value<IPublishedContent>("containerBackgroundImage")?.Url() ?? null;    
 
     
     var containsColumns = Model.Areas?.Any(area => area.Any(column => column.Content.ContentType.Alias == "columns")) ?? false;
@@ -26,6 +26,11 @@
 
 
  <div class="container d-flex flex-column">
+
+    @if(!string.IsNullOrEmpty(containerBackgroundImage))
+    {
+        <div class="background-image" style="background-image: url('@containerBackgroundImage');"></div>
+    }
         @if (containsColumns)
         {
             @foreach (var area in Model.Areas)
@@ -47,4 +52,4 @@
                 @await Html.GetBlockGridItemAreasHtmlAsync(Model)
             </div>
         }
-    </div>
+</div>

@@ -15,17 +15,18 @@
         _ => "text-center"
     };
 
+
 }
 
 @if (!string.IsNullOrEmpty(headlineColor))
 {
-    <h2 class="@alignment" style="color: @headlineColor">
+    <h3 class="@alignment" style="color: @headlineColor">
             @headlineText
-    </h2>
+    </h3>
 }
 else
 {
-    <h2 class="@alignment">
+    <h3 class="@alignment">
         @headlineText
-    </h2>
+    </h3>
 }

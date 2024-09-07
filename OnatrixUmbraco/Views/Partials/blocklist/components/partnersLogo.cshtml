@@ -1,0 +1,11 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var selectedLogo = Model.Content.Value<IPublishedContent>("selectedPartnersLogo")?.Url() ?? null;
+    var companyName = Model.Content.Value<string>("companyName");
+}
+
+
+<img class="partners-logo" src="@selectedLogo" alt="@companyName" />

@@ -1,0 +1,21 @@
+.partners-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+
+    @include sm {
+        gap: 1rem;
+    }
+}
+
+.partners-logo {
+    max-width: 100%;
+    justify-self: center;
+    align-self: center;
+
+    @include sm {
+        justify-self: unset;
+    }
+}

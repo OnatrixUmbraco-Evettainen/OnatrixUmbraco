@@ -1,0 +1,15 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.Blocks;
+@{
+    var partnersLogos = Model.Content.Value<IEnumerable<BlockListItem>>("partnersLogos");
+}
+
+ <div class="partners-list">
+    @foreach (var logo in partnersLogos) 
+    {
+        @await Html.PartialAsync("~/Views/Partials/blocklist/components/partnersLogo.cshtml", logo)
+
+    }
+</div>
