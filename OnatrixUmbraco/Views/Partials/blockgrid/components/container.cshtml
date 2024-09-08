@@ -25,11 +25,11 @@
 }
 
 
- <div class="container d-flex flex-column">
+ <div class="container">
 
     @if(!string.IsNullOrEmpty(containerBackgroundImage))
     {
-        <div class="background-image" style="background-image: url('@containerBackgroundImage');"></div>
+        <div class="container-bg-image" style="background-image: url('@containerBackgroundImage');"></div>
     }
         @if (containsColumns)
         {

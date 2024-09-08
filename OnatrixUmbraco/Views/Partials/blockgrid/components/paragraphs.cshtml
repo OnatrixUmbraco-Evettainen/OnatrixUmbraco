@@ -24,7 +24,16 @@
         _ => "fst-regular"
     };
 
-    var paragraphClass = $"{sizeClass} {styleClass}";
+    var paragraphAlignment = Model.Content.Value<string>("paragraphAlignment");
+    var alignment = paragraphAlignment switch
+    {
+        "Start" => "text-start",
+        "Center" => "text-center",
+        "End" => "text-end",
+        _ => "text-start"
+    };
+
+    var paragraphClass = $"{sizeClass} {styleClass} {alignment}";
 
 }
 

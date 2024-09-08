@@ -21,6 +21,11 @@
 
 
 <section id="@sectionId" class="section-wrapper @spacingTopClass @spacingBottomClass">
+    @if (!string.IsNullOrEmpty(sectionBackgroundImage))
+    {
+        <div class="section-bg-image" style="background-image: url(@sectionBackgroundImage)"></div>
+    }
+
     @if(!string.IsNullOrEmpty(sectionBackgroundColor))
     {
         <div class="background-color" data-height="@sectionBackgroundColorHeight" style="background-color: @sectionBackgroundColor;"></div>

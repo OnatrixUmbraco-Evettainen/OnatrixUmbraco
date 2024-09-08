@@ -1,0 +1,33 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models
+
+@{
+    var buttonText = Model.Content.Value<string>("buttonText");
+    var buttonUrl = Model.Content.Value<Link>("buttonUrl");    
+ 
+
+    var buttonType = Model.Content.Value<string>("buttonType");
+    var type = buttonType switch
+    {
+        "Primary" => "btn-primary",
+        "Secondary" => "btn-secondary",
+        "Accent" => "btn-accent",
+        _ => "btn-primary"
+    };
+
+    var buttonAlignment = Model.Content.Value<string>("buttonAlignment");
+    var alignment = buttonAlignment switch 
+    {
+        "Start" => "align-self-start",
+        "Center" => "align-self-center",
+        "End" => "align-self-end",
+        _ => "align-self-start"
+    };    
+
+    var buttonClass = $"{type} {alignment}";
+
+}
+
+<a href="@buttonUrl.Url" target="@buttonUrl.Target" class="@buttonClass margin-b">@buttonText</a>
