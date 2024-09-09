@@ -29,6 +29,11 @@ p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
 
+p {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
 #root, #__next {
   isolation: isolate;
 }
@@ -136,9 +141,6 @@ ul[role=list], ol[role=list] {
   grid-column-end: span min(var(--umb-block-grid--area-column-span, 1) * 3, var(--umb-block-grid--area-grid-columns));
   grid-row: span var(--umb-block-grid--area-row-span, 1);
 }
-.umb-block-grid__area * {
-  row-gap: 0.5rem;
-}
 
 @media (min-width: 1024px) {
   .umb-block-grid__layout-item {
@@ -154,7 +156,7 @@ h1 {
   color: var(--clr-primary);
   font-family: "Poppins", "sans-serif";
   text-wrap: balance;
-  margin: 0;
+  margin-bottom: 0.5rem;
   font-size: clamp(2.2rem, 1.5556rem + 3.2222vw, 4.375rem);
 }
 
@@ -164,7 +166,7 @@ h2 {
   color: var(--clr-primary);
   font-family: "Poppins", "sans-serif";
   text-wrap: balance;
-  margin: 0;
+  margin-bottom: 0.5rem;
   font-size: clamp(1.625rem, 1.3657rem + 1.2963vw, 2.5rem);
 }
 
@@ -174,7 +176,7 @@ h3 {
   color: var(--clr-primary);
   font-family: "Poppins", "sans-serif";
   text-wrap: balance;
-  margin: 0;
+  margin-bottom: 0.5rem;
   font-size: 0.875rem;
 }
 
@@ -184,7 +186,7 @@ h4 {
   color: var(--clr-primary);
   font-family: "Poppins", "sans-serif";
   text-wrap: balance;
-  margin: 0;
+  margin-bottom: 0.5rem;
   font-size: clamp(1.25rem, 1.213rem + 0.1852vw, 1.375rem);
   font-weight: 600;
 }
@@ -195,7 +197,7 @@ h5 {
   color: var(--clr-primary);
   font-family: "Poppins", "sans-serif";
   text-wrap: balance;
-  margin: 0;
+  margin-bottom: 0.5rem;
   font-size: 1.5625rem;
 }
 
@@ -532,4 +534,72 @@ footer .text-s a:hover {
   text-decoration: none;
   background-color: var(--clr-primary);
   color: var(--clr-white);
+}
+
+.page-title {
+  background-color: var(--clr-white-100);
+  background-image: url(/images/Rectangle-left.svg), url(/images/Rectangle-right.svg);
+  background-position: left bottom, top right;
+  background-size: auto, auto;
+  background-repeat: no-repeat, no-repeat;
+}
+.page-title .container .breadcrumb {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+}
+.page-title .container .breadcrumb li {
+  display: flex;
+  align-items: center;
+}
+.page-title .container .breadcrumb li a {
+  line-height: 160%;
+  font-weight: 400;
+  color: var(--clr-body-text);
+  font-family: "Poppins", "sans-serif";
+  margin: 0;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+.page-title .container .breadcrumb li a:hover {
+  color: var(--clr-secondary);
+}
+.page-title .container .breadcrumb li i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.4rem;
+  font-size: 10px;
+}
+.page-title .container .breadcrumb li p {
+  line-height: 160%;
+  font-weight: 400;
+  color: var(--clr-body-text);
+  font-family: "Poppins", "sans-serif";
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--clr-secondary);
+}
+
+.services-card {
+  background-color: var(--clr-neutral);
+  overflow: hidden;
+  position: relative;
+}
+.services-card a {
+  text-decoration: none;
+}
+.services-card a h4, .services-card a p {
+  padding: clamp(1rem, 0.8519rem + 0.7407vw, 1.5rem);
+}
+.services-card a img {
+  width: 100%;
+}
+.services-card:hover {
+  outline: 2px solid var(--clr-secondary);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }

@@ -12,6 +12,6 @@
   var columnClass = $"col-{mobileColumns} col-md-{tabletColumns} col-lg-{laptopColumns} col-xl-{desktopColumns}";
 }
    
-<div class="@columnClass">
+<div class="@columnClass ">
   @await Html.GetBlockGridItemAreasHtmlAsync(Model)
 </div>

@@ -1,0 +1,33 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+
+
+@{
+	var selection = Umbraco.Content(Guid.Parse("336e93e7-5a3f-44a4-aee1-4e71981942ef"))
+    .ChildrenOfType("serviceItemTemplate")
+    .Where(x => x.IsVisible());
+	//.OrderByDescending(x => x.CreateDate) // Sortera baserat på ett datumfält (här CreateDate)
+	//.Take(6); // Ta de senaste 6 posterna;
+}
+
+<div>
+	<div class="row mt-5 row-gap-4">
+		@foreach (var item in selection)
+		{	
+			var thumbnail = item?.Value<IPublishedContent>("serviceThumbnail")?.Url() ?? "";
+			var excerpt = item?.Value<string>("serviceExcerpt") ?? "";	
+
+			<div class="col-12 col-md-6 col-lg-4">
+				<div class="services-card">
+				<a href="@item.Url()">
+					
+						<h4>@item.Name</h4>
+						<img src="@thumbnail" alt="@item.Name">
+						<p class="text-s">@excerpt</p>
+					
+				</a>
+				</div>
+			</div>
+		}
+	</div>
+</div>

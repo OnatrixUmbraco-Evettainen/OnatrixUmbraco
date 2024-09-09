@@ -1,0 +1,51 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Routing
+@using Umbraco.Extensions
+
+@inject IPublishedUrlProvider PublishedUrlProvider
+@*
+    This snippet makes a breadcrumb of parents using an unordered HTML list.
+
+    How it works:
+    - It uses the Ancestors() method to get all parents and then generates links so the visitor can go back
+    - Finally it outputs the name of the current page (without a link)
+*@
+
+@{ 
+    var selection = Model.Ancestors().ToArray(); 
+    var homePageDisplayName = "Home";
+    var isFirstItem = true;
+    
+    
+}
+
+@if (selection?.Length > 0)
+{
+    <section class="page-title padding-tb">
+        <div class="container">
+            <h2 class="text-center">@ViewBag?.Title</h2>
+
+
+        <div class="d-flex justify-content-center gap-3 pt-3">
+            <ul class="breadcrumb">
+                @foreach (var item in selection.OrderBy(x => x.Level))
+                {
+                    var displayName = isFirstItem ? homePageDisplayName : item.Name;
+                    <li>
+                        <a href="@item.Url(PublishedUrlProvider)">@displayName</a> 
+                        <i class="fa-regular fa-angle-right"></i>
+
+                    </li>
+                    isFirstItem = false;
+                }
+                <li class="active"><p>@Model.Name</p></li>
+            </ul>
+        </div>
+        </div>
+        
+    </section>
+
+
+
+   
+}

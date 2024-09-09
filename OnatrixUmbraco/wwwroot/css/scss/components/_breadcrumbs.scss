@@ -1,0 +1,50 @@
+.page-title {
+    background-color: var(--clr-white-100);
+    background-image: url(/images/Rectangle-left.svg), url(/images/Rectangle-right.svg);
+    background-position: left bottom, top right;
+    background-size: auto, auto;
+    background-repeat: no-repeat, no-repeat;
+
+    .container {
+
+        .breadcrumb {
+            display: flex;
+            gap: .5rem;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            padding: 0;
+
+            li {
+                display: flex;
+                align-items: center;
+
+                a {
+                    @include text-s;
+                    text-decoration: none;
+                    transition: all .2s ease-in-out;
+
+                    &:hover {
+                        color: var(--clr-secondary);
+                    }
+                }
+
+                i {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-left: .4rem;
+                    font-size: 10px;
+                }
+
+                
+
+                p {
+                    @include text-s;
+                    color: var(--clr-secondary);
+                }
+                
+            }
+        }
+    }
+}

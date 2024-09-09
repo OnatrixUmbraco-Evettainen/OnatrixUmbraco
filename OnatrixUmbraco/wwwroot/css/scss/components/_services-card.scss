@@ -1,0 +1,28 @@
+.services-card {
+    background-color: var(--clr-neutral);
+    overflow: hidden;
+    position: relative;
+    
+
+    a {
+        text-decoration: none;
+
+
+        h4, p {
+            padding: clamp(1rem, 0.8519rem + 0.7407vw, 1.5rem);
+        }
+
+
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &:hover {
+        outline: 2px solid var(--clr-secondary);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+        
+    }
+}
