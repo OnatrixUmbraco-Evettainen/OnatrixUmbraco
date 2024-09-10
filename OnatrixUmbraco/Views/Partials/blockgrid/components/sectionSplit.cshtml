@@ -1,0 +1,41 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var sectionTitle = Model?.Content.Value<string>("sectionTitle") ?? "";
+    var sectionId = sectionTitle?.ToString().ToLower().Trim().Replace(" ", "-");
+
+    var spacingTopClass = Model.Content.Value<bool>("addSpaceToTop") ? "margin-t" : "";
+    var spacingBottomClass = Model.Content.Value<bool>("addSpaceToBottom") ? "margin-b" : "";
+        
+    var sectionBackgroundColor = Model.Content.Value<string>("sectionBackgroundColor") ?? "";
+    var sectionImage = Model.Content.Value<IPublishedContent>("sectionImage")?.Url() ?? "";
+    
+    var imagePosition = Model.Content.Value<string>("imagePosition") ?? "right";
+    var contentClass = imagePosition.ToLower() == "right" ? "content-left" : "content-right";
+    var imageClass = imagePosition.ToLower() == "right" ? "img-right" : "img-left";
+
+
+}
+
+ <section id="@sectionId" class="section-split @spacingTopClass @spacingBottomClass">
+    @if(!string.IsNullOrEmpty(sectionBackgroundColor))
+    {
+        <div class="grid-split" style="background-color: @sectionBackgroundColor">
+            <div class="container @contentClass d-flex flex-column justify-content-center">
+                @await Html.GetBlockGridItemAreasHtmlAsync(Model)
+            </div>
+            <img class="@imageClass" src="@sectionImage" alt="@sectionTitle">
+        </div>
+    }
+    else 
+    {
+         <div class="grid-split">
+            <div class="container @contentClass d-flex flex-column justify-content-center">
+                @await Html.GetBlockGridItemAreasHtmlAsync(Model)
+            </div>
+            <img class="@imageClass" src="@sectionImage" alt="@sectionTitle">
+        </div>
+    }
+</section>

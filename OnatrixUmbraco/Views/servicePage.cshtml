@@ -1,52 +1,13 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ServicePage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels; 
 @{
 	Layout = "mainLayout.cshtml";
     ViewBag.Title = Model?.Value("pageTitle") ?? null;
-
-	var selection = Umbraco.Content(Guid.Parse("336e93e7-5a3f-44a4-aee1-4e71981942ef"))
-    .ChildrenOfType("serviceItemTemplate")
-    .Where(x => x.IsVisible());
 }
 @if (!string.IsNullOrEmpty(ViewBag.Title))
 {
     @await Html.PartialAsync("partials/static/breadcrumbs.cshtml")
 }
 
-<section>
-
-	<div class="container">
-
-		<div class="content">
-			@if (!string.IsNullOrEmpty(Model.Value<string>("serviceHeadline")))
-			{
-				<h2>@Model.Value("serviceHeadline")</h2>
-			}
-
-
-			<div class="row">
-
-				@if (selection != null && selection.Any()) 
-				{
-					@foreach (var item in selection)
-					{
-						<li>
-							<a href="@item.Url()">@item.Name()</a>
-						</li>
-					}
-				}
-
-				
-
-			</div>
-
-		</div>
-
-
-	</div>
-
-
-
-
-
-</section>
+@await Html.GetBlockGridHtmlAsync(Model.Layout)

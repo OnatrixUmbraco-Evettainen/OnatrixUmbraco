@@ -33,10 +33,13 @@
         _ => "text-start"
     };
 
+    var spacingTopClass = Model.Content.Value<bool>("addSpaceToTop") ? "pt-2" : "";
+    var spacingBottomClass = Model.Content.Value<bool>("addSpaceToBottom") ? "pb-2" : "";
+
     var paragraphClass = $"{sizeClass} {styleClass} {alignment}";
 
 }
 
-<p class="@paragraphClass">
+<p class="@paragraphClass @spacingTopClass @spacingBottomClass">
     @paragraphText
 </p>

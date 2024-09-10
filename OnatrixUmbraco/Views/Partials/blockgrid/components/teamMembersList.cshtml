@@ -1,0 +1,31 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.Blocks;
+@{
+    var teamMembers = Model.Content.Value<IEnumerable<BlockListItem>>("teamMembers");
+    var teamList = teamMembers?.ToList();    
+}
+
+ <div class="row row-gap-5 pt-5 pb-5">
+    @if (teamList != null) 
+    {
+        for (var i = 0; i < teamList.Count; i++)
+        {
+            var teamMember = teamList[i];
+            var image = teamMember.Content.Value<IPublishedContent>("teamMemberImage")?.Url() ?? "";
+            var name = teamMember.Content.Value<string>("teamMemberName") ?? "";
+            var role = teamMember.Content.Value<string>("teamMemberRole") ?? "";
+
+            var colClass = i < 3 ? "col-6 col-md-4" : "col-6 col-md-4 col-lg-3";
+
+            <div class="teams-card @colClass">
+                <img src="@image" alt="@name">
+                <div class="members-info">
+                    <h4>@name</h4>
+                    <p class="text-s">@role</p>
+                </div>
+            </div>    
+        }
+    }
+</div>

@@ -1,0 +1,86 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper;
+
+@{
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+   
+
+    var officeLocation = settings?.Value<string>("siteName") ?? "No location provided";
+    var officePhoneNumber = settings?.Value<string>("siteName") ?? "No phone number provided";
+    var officeEmailAddress = settings?.Value<string>("siteName") ?? "No email provided";
+
+
+    var contactTitle = Model.Content.Value<string>("contactTitle") ?? "";
+    var contactImage = Model?.Content.Value<IPublishedContent>("contactImage")?.Url() ?? null;         
+    
+}
+
+
+<section class="contact-info-section padding-t">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="content-left order-2 order-sm-1 col-12 col-sm-6">
+                <img src="@contactImage" alt="@contactTitle">
+            </div>
+
+            <div class="contact-info order-1 order-sm-2 col-sm-5 d-flex flex-column align-self-center">
+                <h2>Let us know about your next project</h2>
+                <ul class="contact-info-bullets">
+                    <li>
+                        <i class="fa-light fa-location-dot"></i>
+                        <div class="info"> 
+                            <p class="text-s fw-semibold">Office location</p>
+                            <p class="text-s">@officeLocation</p>
+                        </div>
+
+                    </li>
+                    <li>
+                        <i class="fa-light fa-phone-flip"></i>
+                        <div class="info"> 
+                            <p class="text-s fw-semibold">Office location</p>
+                            <p class="text-s">@officePhoneNumber</p>
+                        </div>
+                    </li>
+                    <li>
+                    <i class="fa-light fa-envelope"></i>
+                        <div class="info"> 
+                            <p class="text-s fw-semibold">Office location</p>
+                            <p class="text-s">@officeEmailAddress</p>
+                        </div>
+                    </li>
+                </ul>   
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <div class="contact-info">
+
+    <ul class="contact-info-bullets">
+        <li>
+            <i class="fa-light fa-location-dot"></i>
+            <div class="info"> 
+                <p class="text-s fw-semibold">Office location</p>
+                <p class="text-s">@officeLocation</p>
+            </div>
+
+        </li>
+        <li>
+            <i class="fa-light fa-phone-flip"></i>
+            <div class="info"> 
+                <p class="text-s fw-semibold">Office location</p>
+                <p class="text-s">@officePhoneNumber</p>
+            </div>
+        </li>
+        <li>
+           <i class="fa-light fa-envelope"></i>
+            <div class="info"> 
+                <p class="text-s fw-semibold">Office location</p>
+                <p class="text-s">@officeEmailAddress</p>
+            </div>
+        </li>
+    </ul>   
+
+</div> -->

@@ -2,6 +2,8 @@
     background-color: var(--clr-neutral);
     overflow: hidden;
     position: relative;
+
+    border: 2px solid var(--clr-white-100);
     
 
     a {
@@ -20,7 +22,7 @@
     }
 
     &:hover {
-        outline: 2px solid var(--clr-secondary);
+        border: 2px solid var(--clr-secondary);
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 
         

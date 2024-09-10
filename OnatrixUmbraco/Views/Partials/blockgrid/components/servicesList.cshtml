@@ -10,7 +10,7 @@
 	//.Take(6); // Ta de senaste 6 posterna;
 }
 
-<div>
+<!-- <div>
 	<div class="row mt-5 row-gap-4">
 		@foreach (var item in selection)
 		{	
@@ -30,4 +30,28 @@
 			</div>
 		}
 	</div>
+</div> -->
+
+<div class="swiper-container">
+    <div class="swiper-wrapper mt-5 mb-5">
+        @foreach (var item in selection)
+        {	
+            var thumbnail = item?.Value<IPublishedContent>("serviceThumbnail")?.Url() ?? "";
+            var excerpt = item?.Value<string>("serviceExcerpt") ?? "";	
+
+            <div class="swiper-slide">
+                <div class="services-card ">
+                    <a href="@item.Url()">
+                        <h4>@item.Name</h4>
+                        <img src="@thumbnail" alt="@item.Name">
+                        <p class="text-s">@excerpt</p>
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+
+
+    <!-- Lägg till paginering om du vill -->
+    <div class="swiper-pagination"></div>
 </div>

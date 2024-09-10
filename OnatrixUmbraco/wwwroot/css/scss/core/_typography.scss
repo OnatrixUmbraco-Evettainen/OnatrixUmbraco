@@ -7,7 +7,7 @@ $font-manrope: 'Poppins', 'sans-serif';
     color: var(--clr-primary);
     font-family: $font-manrope;
     text-wrap: balance;
-    margin-bottom: .5rem;
+    margin-bottom: 1rem;
 }
 
 
@@ -30,6 +30,7 @@ $font-manrope: 'Poppins', 'sans-serif';
     @include standard-heading;
     font-size: clamp(1.25rem, 1.213rem + 0.1852vw, 1.375rem);
     font-weight: 600;
+    margin: 0;
 }
 
 @mixin h5 {
