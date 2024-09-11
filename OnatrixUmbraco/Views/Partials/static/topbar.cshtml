@@ -1,0 +1,16 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper;
+
+@{ 
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+    var officeLocation = settings?.Value<string>("siteName") ?? "No location provided";
+}
+
+<div class="topbar">
+    <div class="container">
+        <p>@officeLocation</p>
+        @await Html.PartialAsync("socialmedia.cshtml")
+    </div>
+</div>

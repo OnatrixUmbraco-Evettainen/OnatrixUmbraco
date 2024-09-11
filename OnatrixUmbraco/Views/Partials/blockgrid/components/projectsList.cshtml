@@ -3,17 +3,3 @@
 
 
 
-@{
-	var selection = Umbraco.Content(Guid.Parse("94c98b4f-e4d6-47d3-986c-7ef1f2aee043"))
-    .ChildrenOfType("projectItemTemplate")
-    .Where(x => x.IsVisible());
-}
-<ul>
-	@foreach (var item in selection)
-	{
-		<li>
-			<a href="@item.Url()">@item.Name()</a>
-		</li>
-	}
-</ul>
-
