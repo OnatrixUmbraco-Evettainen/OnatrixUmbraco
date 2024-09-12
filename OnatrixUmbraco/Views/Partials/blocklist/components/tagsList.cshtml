@@ -1,0 +1,23 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var tags = Model.Content.Value<IEnumerable<string>>("tags") ?? null;
+}
+
+
+
+<div class="tags d-flex flex-column gap-3 col-12  ">
+    <h4>Tags</h4>
+    <div class="d-flex flex-wrap gap-2">
+
+        @if (tags != null && tags.Any())
+        {
+            @foreach (var tag in tags)
+            {
+                <p class="text-xs">@tag</p>
+            }
+        }        
+    </div>
+</div>

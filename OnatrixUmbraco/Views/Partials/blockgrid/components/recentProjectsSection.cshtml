@@ -1,0 +1,80 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var sectionTitle = Model.Content.Value<string>("sectionTitle") ?? "";
+    var sectionHeadline = Model.Content.Value<string>("sectionHeadline") ?? "";
+
+    var sectionTitleColor = Model?.Content.Value<string>("sectionTitleColor") ?? null;
+    var sectionHeadlineColor = Model?.Content.Value<string>("sectionHeadlineColor") ?? null;
+
+    var selection = Umbraco.Content(Guid.Parse("810548e7-7402-4c7e-bc7c-84b84598e777"))
+    .ChildrenOfType("projectItemTemplate")
+    .Where(x => x.IsVisible()).Take(4);
+}
+
+
+
+
+
+
+<section class="recent-projects-section padding-t d-flex flex-column gap-4">
+    <div class="container">
+
+        @if (!string.IsNullOrEmpty(sectionTitleColor))
+        {
+            <h3 style="color: @sectionTitleColor">@sectionTitle </h3>
+        }
+        else
+        {
+            <h3> @sectionTitle</h3>
+        }
+
+         @if (!string.IsNullOrEmpty(sectionHeadlineColor))
+        {
+            <h2 style="color: @sectionHeadlineColor">@sectionHeadline </h2>
+        }
+        else
+        {
+            <h2> @sectionHeadline</h2>
+        }
+
+    </div>
+
+    <div class="grid">
+
+        @foreach (var item in selection)
+        {
+            var thumbnail = item?.Value<IPublishedContent>("projectThumbnail")?.Url() ?? "";
+            var category = item?.Value<string>("projectCategory") ?? "";   
+
+            <a href="@item.Url()">
+
+                <div class="projects-card " style="background-image: url(@thumbnail);">
+                    <div class="projects-content">
+
+                        <div class="d-flex flex-grow-1">
+                            <div>
+                                <p class="text-lg fw-medium">@item.Name</p>
+                                <p class="text-s">test</p>
+                            </div>
+                        </div>
+                        
+
+                        <div class="card-icon">
+                            <p>ICON</p>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+        }
+            
+
+        
+
+    </div>
+
+   
+</section>

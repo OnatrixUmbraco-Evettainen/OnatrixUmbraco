@@ -1,0 +1,17 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var formTitle = Model.Content.Value<string>("formTitle") ?? "";
+    var formDescription = Model.Content.Value<string>("formDescription") ?? "";
+}
+
+<div class="form-support d-flex flex-column gap-3 col-12 col-md-6 col-lg-12 ">
+    <h4>@formTitle</h4>
+    <p class="text-s pb-3">@formDescription</p>
+
+    <form action="">
+        <input type="email" id="email" name="email" placeholder="Email address" required>
+    </form>
+</div>

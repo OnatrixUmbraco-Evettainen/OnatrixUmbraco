@@ -1,0 +1,74 @@
+.projects-card {
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+
+    .projects-content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: var(--clr-primary);
+        opacity: .7;
+        padding: 1rem 1rem;
+        transition: all .2s ease-in-out;
+        display: flex;
+        gap: 1rem;
+
+
+
+
+        @include md {
+            gap: 2rem;
+            padding: 1.5rem 1rem;
+        }
+
+
+        .text-lg {
+            color: var(--clr-neutral);
+            margin: 0;
+        }
+
+        .text-s {
+            color: var(--clr-neutral);
+            margin: 0;
+        }
+
+        .card-icon {
+            transition: all .2s ease-in-out;
+            align-self: center;
+            opacity: 0;
+            width: 25%;
+
+
+
+
+            p {
+                color: black;
+            }
+        }
+    }
+
+    &:hover {
+        .projects-content {
+            opacity: 1;
+            padding: 1.5rem 1rem;
+
+
+            @include md {
+                padding: 2.5rem 1rem;
+            }
+
+            .text-lg {
+                color: var(--clr-secondary);
+            }
+
+            .card-icon {
+                opacity: 1;
+            }
+        }
+    }
+}

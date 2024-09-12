@@ -1,0 +1,38 @@
+.contact-info-section {
+    background-color: var(--clr-white-100);
+
+    .container {
+
+        .content-left {
+            background-image: url('/images/Component 1.svg');
+            background-position: left bottom;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .contact-info {
+        }
+
+        .contact-info-bullets {
+            list-style: none;
+            padding: 2rem 0;
+            margin: 0;
+
+            li {
+                display: flex;
+                align-items: flex-start;
+                margin-bottom: 1.5rem;
+            }
+
+
+            i {
+                font-size: 1.375rem;
+                margin-right: .5rem;
+                color: var(--clr-secondary);
+                line-height: 1;
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+.projects-items {
+
+
+
+    img {
+        max-height: 230px;
+        object-fit: cover;
+        object-position: top;
+    }
+
+    .projects-item {
+
+        .projects-date {
+            display: flex;
+            gap: .5rem;
+            align-items: center;
+
+
+            i {
+            }
+
+            p {
+                margin: 0;
+            }
+        }
+
+        .projects-link {
+            text-decoration: none;
+
+            i {
+                margin-left: .5rem;
+                color: var(--clr-secondary);
+            }
+        }
+    }
+}
