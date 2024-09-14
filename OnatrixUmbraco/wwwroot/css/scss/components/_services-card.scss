@@ -2,9 +2,8 @@
     background-color: var(--clr-neutral);
     overflow: hidden;
     position: relative;
-
     border: 2px solid var(--clr-white-100);
-    
+
 
     a {
         text-decoration: none;
@@ -14,17 +13,16 @@
             padding: clamp(1rem, 0.8519rem + 0.7407vw, 1.5rem);
         }
 
-
-
         img {
+            display: block;
             width: 100%;
         }
     }
 
+
+
     &:hover {
         border: 2px solid var(--clr-secondary);
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-
-        
     }
 }

@@ -1,0 +1,42 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper;
+
+@{
+
+var selection = Umbraco.Content(Guid.Parse("336e93e7-5a3f-44a4-aee1-4e71981942ef"))
+    .ChildrenOfType("serviceItemTemplate")
+    .Where(x => x.IsVisible());
+    
+}
+
+
+<section>
+    <div class="container">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                @foreach (var item in selection)
+                {
+                    var thumbnail = item?.Value<IPublishedContent>("serviceThumbnail")?.Url() ?? "";
+                    var excerpt = item?.Value<string>("serviceExcerpt") ?? "";	
+
+                    <div class="swiper-slide">
+                        <a href="@item.Url()">
+                            <h4>@item.Name</h4>
+                            <img src="@thumbnail" alt="@item.Name">
+                            <p class="text-s">@excerpt</p>
+                        </a>
+                    </div>
+                }
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>
+  
+
+   
+  
+
+            
+

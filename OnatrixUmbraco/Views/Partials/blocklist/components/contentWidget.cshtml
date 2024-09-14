@@ -1,0 +1,29 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models
+
+@{
+    var widgetTitle = Model.Content.Value<string>("widgetTitle") ?? "";
+    var widgetImage = Model.Content.Value<IPublishedContent>("widgetImage")?.Url() ?? "";
+    var widgetDescription = Model.Content.Value<string>("widgetDescription") ?? "";
+    var widgetUrl = Model.Content.Value<Link>("widgetUrl");   
+
+}
+
+<div class="content-widget d-flex flex-column gap-3">
+    @if (widgetUrl != null)
+    {
+        <a href="@widgetUrl.Url">
+            <h4>@widgetTitle</h4>
+            <img src="@widgetImage" alt="@widgetTitle">
+            <p class="text-s">@widgetDescription</p>
+        </a>
+    }
+    else
+    {
+        <h4>@widgetTitle</h4>
+        <img src="@widgetImage" alt="@widgetTitle">
+        <p class="text-s">@widgetDescription</p>
+    }
+</div>

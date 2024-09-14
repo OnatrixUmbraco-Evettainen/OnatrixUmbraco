@@ -5,12 +5,12 @@
 @{ 
     var rootContents = UmbracoHelper.ContentAtRoot();
     var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
-    var officeLocation = settings?.Value<string>("siteName") ?? "No location provided";
+    var officeLocation = settings?.Value<string>("officeLocation") ?? "No location provided";
 }
 
 <div class="topbar">
-    <div class="container">
-        <p>@officeLocation</p>
+    <div class="container d-flex align-items-center justify-content-between">
+        <p class="text-xs">@officeLocation</p>
         @await Html.PartialAsync("socialmedia.cshtml")
     </div>
 </div>

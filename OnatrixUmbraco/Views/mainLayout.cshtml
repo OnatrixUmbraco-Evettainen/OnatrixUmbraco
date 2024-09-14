@@ -4,11 +4,11 @@
 
 @{
 	Layout = null;
-
+    
     var rootContents = UmbracoHelper.ContentAtRoot();
     var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
-    var siteName = settings?.Value<string>("siteName") ?? "Onatrix";
-    var siteTagline = settings?.Value<string>("siteTagline") ?? "Financial Solutions";
+    var siteName = !string.IsNullOrEmpty(settings.Value<string>("siteName")) ?  settings.Value<string>("siteName") : "Onatrix";
+    var siteTagline = !string.IsNullOrEmpty(settings.Value<string>("siteTagline")) ? settings.Value<string>("siteTagline") : "Financial Solutions";
 
     var pageTitle = !string.IsNullOrEmpty(ViewBag?.Title) ? $"{ViewBag?.Title} | {siteName} - {siteTagline}" : $"{siteName} - {siteTagline}";         
 
@@ -23,6 +23,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href="~/css/main.css" rel="stylesheet"/>
+
+   
     <title>@pageTitle</title>
 </head>
 <body>
@@ -36,8 +38,9 @@
     </div>
 
     <script src="/scripts/dynamic-height.js"></script>
-    <script src="/scripts/swiper.js" ></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/scripts/swiper.js"></script>
 </body>
 </html>

@@ -21,7 +21,7 @@
     var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
 
     var siteLogotype = settings?.Value<IPublishedContent>("siteLogotype")?.Url() ?? "";
-    var siteName = settings?.Value<string>("siteName") ?? "Onatrix";
+    var siteName = !string.IsNullOrEmpty(settings.Value<string>("siteName")) ? settings.Value<string>("siteName") : "Onatrix";
 }
 
 

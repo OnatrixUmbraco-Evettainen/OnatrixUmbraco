@@ -1,0 +1,21 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var stars = Model.Content.HasValue("stars") ? Model.Content.Value<int>("stars") : 0;
+}
+
+<div class="star-rating">
+    @for (var i = 1; i <=5; i++)
+    {
+        if (i <= stars)
+        {
+            <i class="fa-solid fa-star-sharp active-star"></i>
+        }
+        else
+        {
+            <i class="fa-thin fa-star-sharp inactive-star"></i>
+        }
+    }
+</div>

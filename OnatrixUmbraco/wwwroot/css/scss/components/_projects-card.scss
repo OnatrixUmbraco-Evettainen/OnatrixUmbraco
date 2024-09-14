@@ -68,6 +68,11 @@
 
             .card-icon {
                 opacity: 1;
+                i {
+                    font-size: 3rem;
+                    color: var(--clr-white);
+                    text-decoration: none;
+                }
             }
         }
     }

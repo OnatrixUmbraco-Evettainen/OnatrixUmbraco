@@ -11,3 +11,34 @@
     @await Html.PartialAsync("partials/static/breadcrumbs.cshtml")
 }
 
+ <section class="services-details padding-tb">
+
+    <div class="container">
+
+        <div class="row justify-content-between">
+
+            <aside class="col-12 col-lg-3 d-flex flex-column gap-4 order-2 order-lg-1">
+
+                @Html.GetBlockListHtml(Model.AsideLayout)
+
+            </aside>
+
+            <div class="vertical-line"></div>
+
+
+            <div class="content d-flex flex-column gap-1 col-12 col-lg-8 order-1 order-lg-2">
+
+                
+                @Model.Value("serviceContent")
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+          
+
+</section>
+@await Html.GetBlockGridHtmlAsync(Model.BottomLayout)

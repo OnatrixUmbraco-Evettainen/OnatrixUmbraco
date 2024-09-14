@@ -1,13 +1,80 @@
-.swiper-container {
-    width: 100%;
-    overflow: hidden;
-    padding: 0 0.75rem;
+.hello-world {
+   
 }
 
 
 
+.swiper {
+    width: 100%;
+    height: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .swiper-slide {
-    width: auto;
-    flex-shrink: 0;
-    height: auto;
+   height: max-content;
+}
+
+.swiper-wrapper {
+  
+}
+
+.swiper-slide img {
+
+    
+}
+
+
+
+
+
+
+.swiper-button-prev,
+.swiper-button-next {
+    position: relative; 
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #444;
+    font-weight: bold;
+}
+
+
+.swiper-button-prev:disabled,
+.swiper-button-next:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+
+.custom-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 30px; 
+}
+
+.swiper-pagination {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 10px;
+}
+
+.swiper-pagination-bullet {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #eee;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
 }

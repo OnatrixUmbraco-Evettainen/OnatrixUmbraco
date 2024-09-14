@@ -1,0 +1,60 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+
+    var selection = Umbraco.Content(Guid.Parse("810548e7-7402-4c7e-bc7c-84b84598e777"))
+    .ChildrenOfType("projectItemTemplate")
+    .Where(x => x.IsVisible()).ToList();
+}
+
+
+
+<div class="recents d-flex flex-column gap-3">
+
+    <h4>Recent projects</h4>
+
+    @if (selection != null && selection.Any()) 
+    {
+        @for (int i = 0; i < selection.Count; i++)
+        {
+            var item = selection[i];
+            var pageTitle = item?.Value<string>("pageTitle") ?? "";
+            var created = item?.CreateDate.ToString("MMMM dd, yyyy");
+            var thumbnail = item?.Value<IPublishedContent>("projectThumbnail")?.Url() ?? "";
+           
+
+            <div class="d-flex gap-2">
+
+                <a href="@item.Url()">
+
+                    <img class="col-4" src="@thumbnail" alt="@pageTitle">
+
+                    <div>
+                        <p>@pageTitle</p>
+
+                        <div class="projects-date pt-1">
+                            <i class="fa-regular fa-calendar-days text-note"></i>
+                            <p class="text-s text-note">@created</p>
+                        </div>
+                        
+
+                    </div>
+
+                </a>
+
+            </div>
+
+            @if (i < selection.Count - 1) // Lägg bara till <hr> om det inte är sista objektet
+            {
+                <hr >
+            }
+        }
+
+    }
+    
+
+
+
+</div>

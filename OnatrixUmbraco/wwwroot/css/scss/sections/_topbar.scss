@@ -1,12 +1,11 @@
 .topbar {
     background-color: var(--clr-primary);
-    padding: .6rem 0;
-
-
+    height: auto;
 
     .container {
 
-        p {
+        .text-xs {
+            color: var(--clr-neutral);
             margin: 0;
         }
     }

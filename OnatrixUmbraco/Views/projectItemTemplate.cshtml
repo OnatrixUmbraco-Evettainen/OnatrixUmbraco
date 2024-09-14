@@ -1,5 +1,36 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ProjectItemTemplate>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels; 
+@using Umbraco.Cms.Core.Models.Blocks;
 @{
 	Layout = "mainLayout.cshtml";
+    ViewBag.Title = Model?.Value("pageTitle") ?? null;
+    
 }
+
+@if (!string.IsNullOrEmpty(ViewBag.Title))
+{
+    @await Html.PartialAsync("partials/static/breadcrumbs.cshtml")
+}
+
+
+
+
+<section class="projects-details padding-tb">
+    <div class="container">
+        <div class="row justify-content-between padding-b ">
+
+            <div class="content col-12 col-lg-8 d-flex flex-column gap-1 order-1 ">
+                @Model.Value("projectContent")
+            </div>
+
+            <div class="vertical-line"></div>
+
+            <aside class="col-12 col-lg-3 d-flex flex-column order-3">
+                @Html.GetBlockListHtml(Model.AsideLayout)
+                
+            </aside>
+        </div>
+    </div>
+</section>
+

@@ -7,14 +7,17 @@
     var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
    
 
-    var officeLocation = settings?.Value<string>("siteName") ?? "No location provided";
-    var officePhoneNumber = settings?.Value<string>("siteName") ?? "No phone number provided";
-    var officeEmailAddress = settings?.Value<string>("siteName") ?? "No email provided";
+    var officeLocation = !string.IsNullOrEmpty(settings.Value<string>("officeLocation")) ? settings.Value<string>("officeLocation") : "No location provided";
+    var officePhoneNumber = !string.IsNullOrEmpty(settings.Value<string>("officePhoneNumber")) ? settings.Value<string>("officePhoneNumber") : "No phone number provided";
+    var officeEmailAddress = !string.IsNullOrEmpty(settings.Value<string>("officeEmailAddress")) ? settings.Value<string>("officeEmailAddress") : "No email provided";
 
 
     var contactTitle = Model.Content.Value<string>("contactTitle") ?? "";
     var contactImage = Model?.Content.Value<IPublishedContent>("contactImage")?.Url() ?? null;         
     
+
+
+
 }
 
 
@@ -55,6 +58,10 @@
         </div>
     </div>
 </section>
+
+
+
+
 
 <!-- <div class="contact-info">
 
