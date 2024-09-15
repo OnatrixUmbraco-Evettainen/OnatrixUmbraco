@@ -57,6 +57,7 @@ ul[role=list], ol[role=list] {
   --clr-body-text-100: #999999;
   --clr-note1: #9C9EA6;
   --clr-border-gray: #EAEAEA;
+  --clr-border-400: #C7C8C9;
 }
 
 .wrapper {
@@ -117,6 +118,17 @@ ul[role=list], ol[role=list] {
     order: 2;
     width: 1px;
   }
+}
+
+.recents-projects-aside a {
+  text-decoration: none;
+}
+.recents-projects-aside .recent-projects-item p {
+  margin-bottom: 6px;
+}
+.recents-projects-aside .recent-projects-item .recent-thumbnail {
+  height: 85px;
+  object-fit: cover;
 }
 
 ul li::marker {
@@ -462,12 +474,20 @@ h5 {
 
 .page-title {
   background-color: var(--clr-white-100);
-  background-image: url(/images/Rectangle-left.svg), url(/images/Rectangle-right.svg);
+  background-image: url(/images/Rectangle-left.svg);
   background-position: left bottom, top right;
   background-size: auto, auto;
   background-repeat: no-repeat, no-repeat;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+@media (min-width: 1200px) {
+  .page-title {
+    background-image: url(/images/Rectangle-left.svg), url(/images/Rectangle-right.svg);
+    background-position: left bottom, top right;
+    background-size: auto, auto;
+    background-repeat: no-repeat, no-repeat;
+  }
 }
 .page-title .container .breadcrumb {
   display: flex;
@@ -751,7 +771,7 @@ h5 {
 
 .tags p {
   padding: 0.5rem 1rem;
-  border: 1px solid red;
+  border: 1px solid var(--clr-border-400);
   border-radius: 20px;
 }
 
@@ -763,13 +783,68 @@ h5 {
   padding: 1rem;
 }
 
+form input[type=text],
+form input[type=email],
+form input[type=tel],
+form textarea,
+form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+}
+form input::placeholder, form textarea::placeholder {
+  font-style: italic;
+  font-size: 0.8125rem;
+  color: var(--clr-note1);
+}
+form textarea {
+  resize: none;
+}
+form select {
+  color: var(--clr-body-text);
+  font-size: 0.8125rem;
+  padding: 12px;
+}
+form button {
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  padding: 1rem;
+  color: var(--clr-main-regular);
+  background-color: var(--clr-sub1);
+  width: 100%;
+  border-radius: 0;
+}
+
 .form-support {
   background-color: var(--clr-primary);
   padding: 1.5rem 1.5rem;
   border-radius: 8px;
+  background-image: url(/images/Mail.svg);
+  background-repeat: no-repeat;
+  background-position: right bottom;
 }
-.form-support h4, .form-support p {
-  color: var(--clr-secondary);
+.form-support h4 {
+  color: var(--clr-accent);
+}
+.form-support p {
+  color: var(--clr-neutral);
+}
+.form-support form {
+  position: relative;
+}
+.form-support form input {
+  padding-right: 3rem;
+}
+.form-support form i {
+  position: absolute;
+  top: 25%;
+  right: 10px;
+  transform: translateY(-25%);
+  color: var(--clr-primary);
+  font-size: 1.5rem;
+  pointer-events: none;
 }
 
 .contact-info-section {

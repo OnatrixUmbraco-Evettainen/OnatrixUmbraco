@@ -2,8 +2,34 @@
     background-color: var(--clr-primary);
     padding: 1.5rem 1.5rem;
     border-radius: 8px;
+    background-image: url(/images/Mail.svg);
+    background-repeat: no-repeat;
+    background-position: right bottom;
 
-    h4, p {
-        color: var(--clr-secondary);
+    h4 {
+        color: var(--clr-accent);
+    }
+
+    p {
+        color: var(--clr-neutral);
+    }
+
+    form {
+        position: relative;
+
+
+        input {
+            padding-right: 3rem;
+        }
+
+        i {
+            position: absolute;
+            top: 25%;
+            right: 10px;
+            transform: translateY(-25%);
+            color: var(--clr-primary);
+            font-size: 1.5rem;
+            pointer-events: none;
+        }
     }
 }

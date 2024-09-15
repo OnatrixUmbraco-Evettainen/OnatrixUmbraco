@@ -1,0 +1,48 @@
+form {
+    // padding: 1rem 2rem 3rem 2rem;
+    // padding: 1rem 2rem 3rem 2rem;
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select {
+        width: 100%; 
+        padding: 10px; 
+        margin-bottom: 1.5rem;
+        border: 1px solid #ccc; 
+    }
+
+
+    input::placeholder, textarea::placeholder {
+        font-style: italic;
+        font-size: 0.8125rem;
+        color: var(--clr-note1);
+    }
+
+
+    textarea {
+        resize: none;
+    }
+
+
+
+
+
+    select {
+        color: var(--clr-body-text);
+        font-size: 0.8125rem;
+        padding: 12px;
+    }
+
+
+    button {
+        font-size: 1rem;
+        font-weight: 700;
+        border: none;
+        padding: 1rem;
+        color: var(--clr-main-regular);
+        background-color: var(--clr-sub1);
+        width: 100%;
+        border-radius: 0;
+    }
+}

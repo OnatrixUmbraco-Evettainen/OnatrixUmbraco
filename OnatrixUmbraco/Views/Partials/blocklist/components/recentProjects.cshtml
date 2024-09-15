@@ -11,9 +11,9 @@
 
 
 
-<div class="recents d-flex flex-column gap-3">
+<div class="recents-projects-aside d-flex flex-column gap-1">
 
-    <h4>Recent projects</h4>
+    <h4 class="pb-3">Recent projects</h4>
 
     @if (selection != null && selection.Any()) 
     {
@@ -24,27 +24,29 @@
             var created = item?.CreateDate.ToString("MMMM dd, yyyy");
             var thumbnail = item?.Value<IPublishedContent>("projectThumbnail")?.Url() ?? "";
            
+            <a href="@item.Url()">
+                <div class="d-flex gap-2 recent-projects-item">
 
-            <div class="d-flex gap-2">
+                
 
-                <a href="@item.Url()">
+                        <img class="col-4 recent-thumbnail" src="@thumbnail" alt="@pageTitle">
 
-                    <img class="col-4" src="@thumbnail" alt="@pageTitle">
+                        <div>
+                            <p class="text-s fw-semibold">@pageTitle</p>
 
-                    <div>
-                        <p>@pageTitle</p>
+                            <div class="d-flex gap-2 align-items-center">
+                                <i class="fa-regular fa-calendar-days text-note"></i>
+                                <p class="text-s text-note m-0">@created</p>
+                            </div>
+                            
 
-                        <div class="projects-date pt-1">
-                            <i class="fa-regular fa-calendar-days text-note"></i>
-                            <p class="text-s text-note">@created</p>
                         </div>
-                        
 
-                    </div>
+                    
 
-                </a>
+                </div>
 
-            </div>
+            </a>
 
             @if (i < selection.Count - 1) // Lägg bara till <hr> om det inte är sista objektet
             {
