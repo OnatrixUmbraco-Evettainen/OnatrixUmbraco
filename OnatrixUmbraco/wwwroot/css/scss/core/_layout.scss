@@ -90,6 +90,27 @@
     }
 }
 
+.form {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    .form-header {
+        background-color: var(--dynamic-color, var(--clr-neutral));
+
+        .text-lead {
+            padding: 1.5rem 2rem 1.5rem 2rem;
+        }
+    }
+
+    .text-xs {
+        padding: 1.5rem 2rem 1.5rem 2rem;
+    }
+
+    form {
+        padding: 1.5rem 2rem 1.5rem 2rem;
+    }
+}
+
+
 
 
 .recents-projects-aside {

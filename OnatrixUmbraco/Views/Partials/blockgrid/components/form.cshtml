@@ -1,0 +1,70 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.Blocks
+
+
+@{
+    var formTitle = Model.Content.Value<string>("formTitle") ?? "";
+    
+    var formLayout = Model.Content.Value<IEnumerable<BlockGridItem>>("formLayout");
+
+    var titleBackgroundColor = Model.Content.Value<string>("titleBackgroundColor") ?? null;
+    //var titleBackgroundColor = Model.Content.Value<Umbraco.Cms.Core.PropertyEditors.ValueConverters.ColorPickerValueConverter.PickedColor>("titleBackgroundColor")?.Label.ToLower() ?? null;
+
+    var titleColor = Model.Content.Value<string>("titleColor") ?? null;
+
+    var descriptionText = Model.Content.Value<string>("descriptionText") ?? null;
+
+}
+
+<div class="form">
+
+    <div class="form-header" data-color="@titleBackgroundColor">
+        @if (!string.IsNullOrEmpty(titleColor))
+        {
+            <p class="text-lead fw-bold" style="color: @titleColor">@formTitle</p>
+        }
+        else
+        {
+            <p class="text-lead fw-bold">@formTitle</p>
+        }
+        
+    </div>
+    <p class="text-xs fst-italic">@descriptionText</p>
+
+    @using (Html.BeginUmbracoForm("HandleSubmit", "FormSurface", FormMethod.Post, new {novalidate = "novalidate" }))
+    {
+        <div class="row">
+            @if (formLayout != null)
+            {
+                @foreach (var item in formLayout)
+                {
+                    var inputType = item.Content.ContentType.Alias;
+
+                    switch (inputType)
+                    {
+                        case "inputText":
+                            @await Html.PartialAsync("~/views/partials/blockgrid/components/inputText.cshtml", item)
+                            break;
+
+                        case "submitButton":
+                            @await Html.PartialAsync("~/views/partials/blockgrid/components/submitButton.cshtml", item)
+                            break;
+                    }
+                }
+            }
+        </div>
+    }
+
+    
+
+
+
+    
+</div>
+
+
+
+
+

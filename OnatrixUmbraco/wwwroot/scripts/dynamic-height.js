@@ -6,4 +6,18 @@
             backgroundDiv.style.setProperty('--dynamic-height', height + '%');
         }
     });
+
+
+    const formHeaders = document.querySelectorAll('.form-header');
+    formHeaders.forEach(function (formHeader) {
+        let color = formHeader.getAttribute('data-color');
+        if (color) {
+            formHeader.style.setProperty('--dynamic-color', color);
+        }
+    });
+ 
 });
+
+
+
+

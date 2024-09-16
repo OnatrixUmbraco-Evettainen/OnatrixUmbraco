@@ -120,6 +120,22 @@ ul[role=list], ol[role=list] {
   }
 }
 
+.form {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.form .form-header {
+  background-color: var(--dynamic-color, var(--clr-neutral));
+}
+.form .form-header .text-lead {
+  padding: 1.5rem 2rem 1.5rem 2rem;
+}
+.form .text-xs {
+  padding: 1.5rem 2rem 1.5rem 2rem;
+}
+.form form {
+  padding: 1.5rem 2rem 1.5rem 2rem;
+}
+
 .recents-projects-aside a {
   text-decoration: none;
 }
