@@ -22,6 +22,8 @@
     
     var containsColumns = Model.Areas?.Any(area => area.Any(column => column.Content.ContentType.Alias == "columns")) ?? false;
 
+    var placeContentCenter = Model.Content.Value<bool>("placeContentCenter");
+
 }
 
 
@@ -34,9 +36,9 @@
         @if (containsColumns)
         {
             <div class="content">
-@foreach (var area in Model.Areas)
+            @foreach (var area in Model.Areas)
             {
-                <div class="row">
+                <div class="row @(placeContentCenter ? "justify-content-center" : "")">
                     @foreach (var column in area)
                     {
                         @await Html.PartialAsync("~/Views/Partials/blockgrid/components/columns.cshtml", column)

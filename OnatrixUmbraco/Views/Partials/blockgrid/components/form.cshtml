@@ -4,6 +4,7 @@
 @using Umbraco.Cms.Core.Models.Blocks
 
 
+
 @{
     var formTitle = Model.Content.Value<string>("formTitle") ?? "";
     
@@ -41,15 +42,20 @@
                 @foreach (var item in formLayout)
                 {
                     var inputType = item.Content.ContentType.Alias;
+                    var fieldAlias = item.Content.Value<string>("uniqueName");
+                   
+
 
                     switch (inputType)
                     {
                         case "inputText":
-                            @await Html.PartialAsync("~/views/partials/blockgrid/components/inputText.cshtml", item)
+
+
+                            @await Html.PartialAsync("~/views/partials/blockgrid/components/inputText.cshtml", item);
                             break;
 
                         case "submitButton":
-                            @await Html.PartialAsync("~/views/partials/blockgrid/components/submitButton.cshtml", item)
+                            <button type="submit" class="btn btn-primary">Submit</button>
                             break;
                     }
                 }

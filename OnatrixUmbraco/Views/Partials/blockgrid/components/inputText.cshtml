@@ -1,37 +1,77 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+﻿@using OnatrixUmbraco.Helpers
+@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@inject Signature Signature
+
 
 @{
 
     var inputType = Model.Content.Value<string>("inputType").ToLower();
 
-   
 
     var uniqueName = Model.Content.Value<string>("uniqueName").ToLower();
     var placeholderText = Model.Content.Value<string>("placeholderText");
 
 
     var isRequired = Model.Content.Value<bool>("isRequired");
-    var errorMessage = !string.IsNullOrEmpty(Model.Content.Value<string>("errorMessage")) ? Model.Content.Value<string>("errorMessage") : "Field is required";
+    var regex = Model.Content.Value<string>("validationRegex") ?? "";
+    var errorMessage = Model.Content.Value<string>("errorMessage");
 
-    var mobileColumns = Model.Content.Value<int>("mobileColumns") > 0 ? Model.Content.Value<int>("mobileColumns") : 12;
-    var tabletColumns = Model.Content.Value<int>("tabletColumns") > 0 ? Model.Content.Value<int>("tabletColumns") : 12;
-    var laptopColumns = Model.Content.Value<int>("laptopColumns") > 0 ? Model.Content.Value<int>("laptopColumns") : 12;
-    var desktopColumns = Model.ColumnSpan;
+    var signature = (isRequired || !string.IsNullOrEmpty(regex)) ? Signature.GenerateSignature(uniqueName, isRequired, regex) : null;
+
+
+    var (mobileColumns, tabletColumns, laptopColumns, desktopColumns) = 
+    (
+        Model.Content.Value<int>("mobileColumns") > 0 ? Model.Content.Value<int>("mobileColumns") : 12,
+        Model.Content.Value<int>("tabletColumns") > 0 ? Model.Content.Value<int>("tabletColumns") : 12,
+        Model.Content.Value<int>("laptopColumns") > 0 ? Model.Content.Value<int>("laptopColumns") : 12,
+        Model.ColumnSpan
+    );
+
     var columnClass = $"col-{mobileColumns} col-md-{tabletColumns} col-lg-{laptopColumns} col-xl-{desktopColumns}";
 
 }
 
 <div class="@uniqueName @columnClass">
     <label for="@uniqueName" class="form-label" hidden>Test</label>
-    <input type="@inputType" class="form-control" id="@uniqueName" placeholder="@placeholderText" required="@isRequired">
+    <input type="@inputType" 
+           name="Fields[@uniqueName]" 
+           class="form-control @(ViewData[$"{uniqueName}Error"] != null ? "is-invalid" : (ViewData[$"{uniqueName}IsValid"] != null && (bool)ViewData[$"{uniqueName}IsValid"] ? "is-valid" : ""))"
+           id="@uniqueName" 
+           placeholder="@placeholderText" 
+           value="@ViewData[uniqueName]">
 
-    @if(isRequired) 
+    @if (ViewData[$"{uniqueName}Error"] != null)
     {
         <div class="invalid-feedback">
-            @errorMessage
+            @ViewData[$"{uniqueName}Error"] 
         </div>
+    }
+
+
+    @if (isRequired || !string.IsNullOrEmpty(regex))
+    {
+        
+        @if (isRequired)
+        {
+            <input type="hidden" name="ValidationRules[@uniqueName].IsRequired" value="true" />
+        }
+
+        @if (!string.IsNullOrEmpty(regex))
+        {
+            <input type="hidden" name="ValidationRules[@uniqueName].Regex" value="@regex" />
+        }
+
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <input type="hidden" name="ValidationRules[@uniqueName].ErrorMessage" value="@errorMessage" />
+        }
+
+        @if (!string.IsNullOrEmpty(signature))
+        {
+            <input type="hidden" name="ValidationRules[@uniqueName].Signature" value="@signature" />
+        }
     }
     
 </div>

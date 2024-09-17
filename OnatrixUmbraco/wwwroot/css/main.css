@@ -675,10 +675,12 @@ h5 {
   margin: 0;
 }
 .projects-card .projects-content .card-icon {
-  transition: all 0.2s ease-in-out;
   align-self: center;
-  opacity: 0;
   width: 25%;
+}
+.projects-card .projects-content .card-icon i {
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
 }
 .projects-card .projects-content .card-icon p {
   color: black;
@@ -695,10 +697,8 @@ h5 {
 .projects-card:hover .projects-content .text-lg {
   color: var(--clr-secondary);
 }
-.projects-card:hover .projects-content .card-icon {
-  opacity: 1;
-}
 .projects-card:hover .projects-content .card-icon i {
+  opacity: 1;
   font-size: 3rem;
   color: var(--clr-white);
   text-decoration: none;
@@ -806,8 +806,8 @@ form textarea,
 form select {
   width: 100%;
   padding: 10px;
-  margin-bottom: 1.5rem;
   border: 1px solid #ccc;
+  margin-bottom: 1.5rem;
 }
 form input::placeholder, form textarea::placeholder {
   font-style: italic;
@@ -831,6 +831,12 @@ form button {
   background-color: var(--clr-sub1);
   width: 100%;
   border-radius: 0;
+}
+
+.invalid-feedback {
+  padding: 0 0.2rem;
+  margin-top: -1rem;
+  margin-bottom: 0.5rem;
 }
 
 .form-support {
