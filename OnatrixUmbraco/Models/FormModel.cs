@@ -15,7 +15,9 @@ public class FormModel
 public class ValidationRule
 {
     public bool IsRequired { get; set; }
+    public string? RequiredMessage { get; set; }
     public string? Regex { get; set; }
+    public string? ExpressionMessage { get; set; }
     public string? ErrorMessage { get; set; }
     public string? Signature { get; set; }
 }

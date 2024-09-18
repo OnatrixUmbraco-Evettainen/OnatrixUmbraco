@@ -15,8 +15,12 @@
 
 
     var isRequired = Model.Content.Value<bool>("isRequired");
-    var regex = Model.Content.Value<string>("validationRegex") ?? "";
-    var errorMessage = Model.Content.Value<string>("errorMessage");
+    var requiredMessage = Model.Content.Value<string>("requiredMessage");
+    
+    var regex = Model.Content.Value<string>("regularExpressionPattern");
+
+    var expressionMessage = Model.Content.Value<string>("expressionMessage");
+    
 
     var signature = (isRequired || !string.IsNullOrEmpty(regex)) ? Signature.GenerateSignature(uniqueName, isRequired, regex) : null;
 
@@ -56,17 +60,16 @@
         @if (isRequired)
         {
             <input type="hidden" name="ValidationRules[@uniqueName].IsRequired" value="true" />
+            <input type="hidden" name="ValidationRules[@uniqueName].RequiredMessage" value="@requiredMessage" />
         }
 
         @if (!string.IsNullOrEmpty(regex))
         {
             <input type="hidden" name="ValidationRules[@uniqueName].Regex" value="@regex" />
+            <input type="hidden" name="ValidationRules[@uniqueName].ExpressionMessage" value="@expressionMessage" />
         }
 
-        @if (!string.IsNullOrEmpty(errorMessage))
-        {
-            <input type="hidden" name="ValidationRules[@uniqueName].ErrorMessage" value="@errorMessage" />
-        }
+   
 
         @if (!string.IsNullOrEmpty(signature))
         {

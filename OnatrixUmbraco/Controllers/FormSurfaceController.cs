@@ -35,44 +35,40 @@ public class FormSurfaceController(IUmbracoContextAccessor umbracoContextAccesso
             {
                 var validationRule = value;
 
-         
-                if (!string.IsNullOrEmpty(validationRule.Signature))
+
+                var clientSignature = validationRule.Signature;
+
+
+                var generatedSignature = _signature.GenerateSignature(
+                    fieldAlias,
+                    validationRule.IsRequired,
+                    validationRule.Regex ?? ""
+                );
+
+
+                if (clientSignature != generatedSignature)
                 {
-               
-                    var clientSignature = validationRule.Signature;
-
-                
-                    var generatedSignature = _signature.GenerateSignature(
-                        fieldAlias,
-                        validationRule.IsRequired,
-                        validationRule.Regex ?? ""
-                    );
-
-               
-                    if (clientSignature != generatedSignature)
-                    {
-                        ModelState.AddModelError(string.Empty, $"{fieldAlias} validation rules have been tampered with.");
-                        return CurrentUmbracoPage();
-                    }
+                    TempData["Error"] = "An unexpected error occurred, Please try again!";
+                    return CurrentUmbracoPage();
                 }
 
-         
+
                 if (validationRule.IsRequired && string.IsNullOrEmpty(fieldValue))
                 {
-                    var errorMessage = !string.IsNullOrEmpty(value.ErrorMessage)
-                    ? value.ErrorMessage
+                    var errorMessage = !string.IsNullOrEmpty(value.RequiredMessage)
+                    ? value.RequiredMessage
                     : $"{char.ToUpper(fieldAlias[0])}{fieldAlias.Substring(1)} is required.";
 
                     errors.Add(new FieldError { FieldAlias = fieldAlias, ErrorMessage = errorMessage });
                 }
 
-                
-                if (!string.IsNullOrEmpty(validationRule.Regex))
+
+                if (!string.IsNullOrEmpty(validationRule.Regex) && !string.IsNullOrEmpty(fieldValue))
                 {
                     var regex = new Regex(validationRule.Regex);
                     if (!regex.IsMatch(fieldValue))
                     {
-                        var errorMessage = !string.IsNullOrEmpty(value.ErrorMessage)
+                        var errorMessage = !string.IsNullOrEmpty(value.ExpressionMessage)
                        ? value.ErrorMessage
                        : $"{char.ToUpper(fieldAlias[0])}{fieldAlias.Substring(1)} is invalid.";
 
@@ -102,7 +98,7 @@ public class FormSurfaceController(IUmbracoContextAccessor umbracoContextAccesso
             return CurrentUmbracoPage();
         }
 
-        
+        TempData["Success"] = "Hello World";
         return RedirectToCurrentUmbracoPage();
 
     }

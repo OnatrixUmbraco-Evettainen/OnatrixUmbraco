@@ -1,0 +1,34 @@
+﻿@{
+    var hasMessage = TempData["Success"] != null || TempData["Error"] != null || TempData["Warning"] != null;
+    var message = "";
+    var iconType = "";
+
+    if (TempData["Success"] != null)
+    {
+        message = TempData["Success"]!.ToString()!;
+        iconType = "success";
+    }
+    else if (TempData["Error"] != null)
+    {
+        message = TempData["Error"]!.ToString()!;
+        iconType = "error";
+    }
+    else if (TempData["Warning"] != null)
+    {
+        message = TempData["Warning"]!.ToString()!;
+        iconType = "warning";
+    }
+}
+
+@if (hasMessage)
+{
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            Swal.fire({
+                icon: "@iconType",
+                text: "@message",
+                confirmButtonText: 'OK'
+            });
+        });
+    </script>
+}

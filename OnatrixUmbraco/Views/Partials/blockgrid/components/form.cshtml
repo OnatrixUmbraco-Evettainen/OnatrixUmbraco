@@ -52,7 +52,13 @@
 
 
                             @await Html.PartialAsync("~/views/partials/blockgrid/components/inputText.cshtml", item);
-                            break;
+                        break;
+
+                        case "selectOptions":
+                            @await Html.PartialAsync("~/views/partials/blockgrid/components/selectOptions.cshtml", item);
+                        break;
+
+
 
                         case "submitButton":
                             <button type="submit" class="btn btn-primary">Submit</button>
