@@ -6,18 +6,13 @@
 
 
 @{
-    var uniqueName = Model.Content.Value<string>("uniqueName").ToLower();
+    var uniqueName = Model.Content.Value<string>("uniqueName")!.ToLower();
     var placeholderText = Model.Content.Value<string>("placeholderText");
-
+    var selectOptions = Model.Content.Value<IEnumerable<string>>("options");
 
     var isRequired = Model.Content.Value<bool>("isRequired");
-    
     var requiredMessage = Model.Content.Value<string>("requiredMessage");
-
-    var signature = (isRequired) ? Signature.GenerateSignature(uniqueName, isRequired, "") : null;
-
-    var selectOptions = Model.Content.Value<IEnumerable<string>>("options") ?? null;
-
+    var signature = isRequired ? Signature.GenerateSignature(uniqueName, isRequired, "") : null;
 
     var (mobileColumns, tabletColumns, laptopColumns, desktopColumns) = 
     (
@@ -26,52 +21,45 @@
         Model.Content.Value<int>("laptopColumns") > 0 ? Model.Content.Value<int>("laptopColumns") : 12,
         Model.ColumnSpan
     );
-
     var columnClass = $"col-{mobileColumns} col-md-{tabletColumns} col-lg-{laptopColumns} col-xl-{desktopColumns}";
 
     var selectedValue = ViewData[uniqueName]?.ToString() ?? "";
-
+    var isInvalid = ViewData[$"{uniqueName}Error"] != null;
+    var isValid = ViewData[$"{uniqueName}IsValid"] as bool? ?? false;
 }
 
 <div class="@uniqueName @columnClass">
     <label for="@uniqueName" class="form-label" hidden>@uniqueName</label>
     <select 
-        name="Fields[@uniqueName]" 
-        class="form-select @(ViewData[$"{uniqueName}Error"] != null ? "is-invalid" : (ViewData[$"{uniqueName}IsValid"] != null && (bool)ViewData[$"{uniqueName}IsValid"] ? "is-valid" : ""))"
+        name="Fields[@uniqueName]"
+        class="form-select @(isInvalid ? "is-invalid" : (isValid ? "is-valid" : ""))"
         id="@uniqueName" >
 
-        
         <option value="" selected="@(string.IsNullOrEmpty(selectedValue) ? "selected" : null)">@placeholderText</option>
-
-      
-        @foreach (var item in selectOptions)
+        @if (selectOptions != null && selectOptions.Any())
         {
-            <option value="@item" selected="@(selectedValue == item ? "selected" : null)">@item</option>
+            @foreach (var item in selectOptions)
+            {
+                <option value="@item" selected="@(selectedValue == item ? "selected" : null)">@item</option>
+            }
         }
-
-
     </select>
 
-    @if (ViewData[$"{uniqueName}Error"] != null)
+    @if (isInvalid)
     {
         <div class="invalid-feedback">
-            @ViewData[$"{uniqueName}Error"] 
+            @ViewData[$"{uniqueName}Error"]
         </div>
     }
 
-
     @if (isRequired)
     {
-        
-        
         <input type="hidden" name="ValidationRules[@uniqueName].IsRequired" value="true" />
         <input type="hidden" name="ValidationRules[@uniqueName].RequiredMessage" value="@requiredMessage" />
-
 
         @if (!string.IsNullOrEmpty(signature))
         {
             <input type="hidden" name="ValidationRules[@uniqueName].Signature" value="@signature" />
         }
     }
-    
 </div>

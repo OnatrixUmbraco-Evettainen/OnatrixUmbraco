@@ -6,24 +6,15 @@
 
 
 @{
-
-    var inputType = Model.Content.Value<string>("inputType").ToLower();
-
-
-    var uniqueName = Model.Content.Value<string>("uniqueName").ToLower();
+    var inputType = Model.Content.Value<string>("inputType")?.ToLower() ?? "text";
+    var uniqueName = Model.Content.Value<string>("uniqueName")!.ToLower();
     var placeholderText = Model.Content.Value<string>("placeholderText");
-
 
     var isRequired = Model.Content.Value<bool>("isRequired");
     var requiredMessage = Model.Content.Value<string>("requiredMessage");
-    
     var regex = Model.Content.Value<string>("regularExpressionPattern");
-
     var expressionMessage = Model.Content.Value<string>("expressionMessage");
-    
-
-    var signature = (isRequired || !string.IsNullOrEmpty(regex)) ? Signature.GenerateSignature(uniqueName, isRequired, regex) : null;
-
+    var signature = (isRequired || !string.IsNullOrEmpty(regex)) ? Signature.GenerateSignature(uniqueName, isRequired, regex ?? "") : null;
 
     var (mobileColumns, tabletColumns, laptopColumns, desktopColumns) = 
     (
@@ -32,31 +23,30 @@
         Model.Content.Value<int>("laptopColumns") > 0 ? Model.Content.Value<int>("laptopColumns") : 12,
         Model.ColumnSpan
     );
-
     var columnClass = $"col-{mobileColumns} col-md-{tabletColumns} col-lg-{laptopColumns} col-xl-{desktopColumns}";
 
+    var isInvalid = ViewData[$"{uniqueName}Error"] != null;
+    var isValid = ViewData[$"{uniqueName}IsValid"] as bool? ?? false;
 }
 
 <div class="@uniqueName @columnClass">
     <label for="@uniqueName" class="form-label" hidden>Test</label>
     <input type="@inputType" 
            name="Fields[@uniqueName]" 
-           class="form-control @(ViewData[$"{uniqueName}Error"] != null ? "is-invalid" : (ViewData[$"{uniqueName}IsValid"] != null && (bool)ViewData[$"{uniqueName}IsValid"] ? "is-valid" : ""))"
+           class="form-control @(isInvalid ? "is-invalid" : (isValid ? "is-valid" : ""))"
            id="@uniqueName" 
            placeholder="@placeholderText" 
            value="@ViewData[uniqueName]">
 
-    @if (ViewData[$"{uniqueName}Error"] != null)
+    @if (isInvalid)
     {
         <div class="invalid-feedback">
-            @ViewData[$"{uniqueName}Error"] 
+            @ViewData[$"{uniqueName}Error"]
         </div>
     }
 
-
     @if (isRequired || !string.IsNullOrEmpty(regex))
     {
-        
         @if (isRequired)
         {
             <input type="hidden" name="ValidationRules[@uniqueName].IsRequired" value="true" />
@@ -69,12 +59,9 @@
             <input type="hidden" name="ValidationRules[@uniqueName].ExpressionMessage" value="@expressionMessage" />
         }
 
-   
-
         @if (!string.IsNullOrEmpty(signature))
         {
             <input type="hidden" name="ValidationRules[@uniqueName].Signature" value="@signature" />
         }
     }
-    
 </div>

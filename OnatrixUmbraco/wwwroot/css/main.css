@@ -806,36 +806,57 @@ form textarea,
 form select {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border-radius: 0;
   margin-bottom: 1.5rem;
 }
 form input::placeholder, form textarea::placeholder {
-  font-style: italic;
+  line-height: 160%;
+  font-weight: 400;
+  color: var(--clr-body-text);
+  font-family: "Poppins", "sans-serif";
+  margin: 0;
   font-size: 0.8125rem;
+  font-style: italic;
   color: var(--clr-note1);
 }
 form textarea {
   resize: none;
 }
-form select {
+form .form-select {
+  line-height: 160%;
+  font-weight: 400;
   color: var(--clr-body-text);
+  font-family: "Poppins", "sans-serif";
+  margin: 0;
   font-size: 0.8125rem;
+  color: var(--clr-body-text);
+  margin-bottom: 1.5rem;
   padding: 12px;
+  border-radius: 0;
 }
-form button {
+form button[type=submit] {
+  line-height: 160%;
+  font-weight: 400;
+  color: var(--clr-body-text);
+  font-family: "Poppins", "sans-serif";
+  margin: 0;
   font-size: 1rem;
   font-weight: 700;
   border: none;
-  padding: 1rem;
-  color: var(--clr-main-regular);
-  background-color: var(--clr-sub1);
-  width: 100%;
+  color: var(--clr-primary);
+  background-color: var(--clr-accent);
   border-radius: 0;
+  width: 100%;
+  padding: 12px;
+  transition: all 0.2s ease-in-out;
+}
+form button[type=submit]:hover {
+  background-color: var(--clr-secondary);
 }
 
 .invalid-feedback {
   padding: 0 0.2rem;
-  margin-top: -1rem;
+  margin-top: -1.2rem;
   margin-bottom: 0.5rem;
 }
 
