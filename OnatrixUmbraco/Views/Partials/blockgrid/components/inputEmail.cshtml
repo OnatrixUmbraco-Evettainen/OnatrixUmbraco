@@ -6,7 +6,6 @@
 
 
 @{
-    var inputType = Model.Content.Value<string>("inputType")?.ToLower() ?? "text";
     var uniqueName = Model.Content.Value<string>("uniqueName")!.ToLower();
     var placeholderText = Model.Content.Value<string>("placeholderText");
 
@@ -31,8 +30,8 @@
 
 <div class="@uniqueName @columnClass">
     <label for="@uniqueName" class="form-label" hidden>Test</label>
-    <input type="@inputType"
-           name="Fields[@uniqueName]"
+    <input type="email"
+           name="Fields[email]"
            class="form-control @(isInvalid ? "is-invalid" : (isValid ? "is-valid" : ""))"
            id="@uniqueName"
            placeholder="@placeholderText"

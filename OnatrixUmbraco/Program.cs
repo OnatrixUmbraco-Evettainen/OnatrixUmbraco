@@ -1,4 +1,7 @@
+using Azure.Messaging.ServiceBus;
 using OnatrixUmbraco.Helpers;
+using OnatrixUmbraco.Services;
+using Umbraco.Cms.Core.Services;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -7,9 +10,13 @@ builder.CreateUmbracoBuilder()
     .AddWebsite()
     .AddDeliveryApi()
     .AddComposers()
-    .Build();
+.Build();
 
-builder.Services.AddSingleton<Signature>();
+builder.Services.AddTransient<Signature>();
+builder.Services.AddTransient<IFormValidationService, FormValidationService>();
+builder.Services.AddTransient<IEmailService, EmailService>();
+builder.Services.AddSingleton(new ServiceBusClient(builder.Configuration.GetValue<string>("ServiceBus_Connection")));
+
 
 WebApplication app = builder.Build();
 

@@ -807,7 +807,7 @@ form select {
   width: 100%;
   padding: 10px;
   border-radius: 0;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.875rem;
 }
 form input::placeholder, form textarea::placeholder {
   line-height: 160%;
@@ -860,6 +860,25 @@ form button[type=submit]:hover {
   margin-bottom: 0.5rem;
 }
 
+.form-group {
+  position: relative;
+}
+.form-group i {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: var(--clr-primary);
+  font-size: 1.5rem;
+  pointer-events: none;
+}
+.form-group.is-valid i {
+  color: #198754;
+}
+.form-group.is-invalid i {
+  color: #DC3545;
+}
+
 .form-support {
   background-color: var(--clr-primary);
   padding: 1.5rem 1.5rem;
@@ -874,20 +893,8 @@ form button[type=submit]:hover {
 .form-support p {
   color: var(--clr-neutral);
 }
-.form-support form {
-  position: relative;
-}
-.form-support form input {
-  padding-right: 3rem;
-}
-.form-support form i {
-  position: absolute;
-  top: 25%;
-  right: 10px;
-  transform: translateY(-25%);
-  color: var(--clr-primary);
-  font-size: 1.5rem;
-  pointer-events: none;
+.form-support .form-control {
+  background-image: none;
 }
 
 .contact-info-section {

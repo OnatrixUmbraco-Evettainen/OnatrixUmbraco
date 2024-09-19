@@ -1,4 +1,4 @@
-﻿namespace OnatrixUmbraco.Models;
+﻿namespace OnatrixUmbraco.ViewModels;
 
 public class FormModel
 {

@@ -1,4 +1,5 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+﻿@using OnatrixUmbraco.ViewModels
+@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @using Umbraco.Cms.Core.Models.Blocks
@@ -7,7 +8,7 @@
 
 @{
     var formTitle = Model.Content.Value<string>("formTitle") ?? "";
-    
+
     var formLayout = Model.Content.Value<IEnumerable<BlockGridItem>>("formLayout");
 
     var titleBackgroundColor = Model.Content.Value<string>("titleBackgroundColor") ?? null;
@@ -17,6 +18,7 @@
 
     var descriptionText = Model.Content.Value<string>("descriptionText") ?? null;
 
+    var formModel = new FormModel();
 }
 
 <div class="form">
@@ -42,28 +44,30 @@
                 @foreach (var item in formLayout)
                 {
                     var inputType = item.Content.ContentType.Alias;
-                    var fieldAlias = item.Content.Value<string>("uniqueName");
-                   
 
+                    
 
-                    switch (inputType)
-                    {
-                        case "inputText":
+                        // Rendera fältet baserat på dess typ
+                        switch (inputType)
+                        {
+                            case "inputText":
+                                @await Html.PartialAsync("~/views/partials/blockgrid/components/inputText.cshtml", item)
+                                break;
 
-
-                            @await Html.PartialAsync("~/views/partials/blockgrid/components/inputText.cshtml", item);
-                        break;
-
-                        case "selectOptions":
-                            @await Html.PartialAsync("~/views/partials/blockgrid/components/selectOptions.cshtml", item);
-                        break;
-
-
-
-                        case "submitButton":
-                            @await Html.PartialAsync("~/views/partials/blockgrid/components/submitButton.cshtml", item);
+                        case "inputEmail":
+                            @await Html.PartialAsync("~/views/partials/blockgrid/components/inputEmail.cshtml", item)
                             break;
-                    }
+
+                            case "selectOptions":
+                                @await Html.PartialAsync("~/views/partials/blockgrid/components/selectOptions.cshtml", item)
+                                break;
+
+                            case "submitButton":
+                                @await Html.PartialAsync("~/views/partials/blockgrid/components/submitButton.cshtml", item)
+                                break;
+
+                        }
+                    
                 }
             }
         </div>

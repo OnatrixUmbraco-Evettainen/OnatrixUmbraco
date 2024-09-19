@@ -14,7 +14,7 @@
     var requiredMessage = Model.Content.Value<string>("requiredMessage");
     var signature = isRequired ? Signature.GenerateSignature(uniqueName, isRequired, "") : null;
 
-    var (mobileColumns, tabletColumns, laptopColumns, desktopColumns) = 
+    var (mobileColumns, tabletColumns, laptopColumns, desktopColumns) =
     (
         Model.Content.Value<int>("mobileColumns") > 0 ? Model.Content.Value<int>("mobileColumns") : 12,
         Model.Content.Value<int>("tabletColumns") > 0 ? Model.Content.Value<int>("tabletColumns") : 12,
@@ -30,10 +30,9 @@
 
 <div class="@uniqueName @columnClass">
     <label for="@uniqueName" class="form-label" hidden>@uniqueName</label>
-    <select 
-        name="Fields[@uniqueName]"
-        class="form-select @(isInvalid ? "is-invalid" : (isValid ? "is-valid" : ""))"
-        id="@uniqueName" >
+    <select name="Fields[@uniqueName]"
+            class="form-select @(isInvalid ? "is-invalid" : (isValid ? "is-valid" : ""))"
+            id="@uniqueName">
 
         <option value="" selected="@(string.IsNullOrEmpty(selectedValue) ? "selected" : null)">@placeholderText</option>
         @if (selectOptions != null && selectOptions.Any())

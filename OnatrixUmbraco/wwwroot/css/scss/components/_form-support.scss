@@ -14,22 +14,10 @@
         color: var(--clr-neutral);
     }
 
-    form {
-        position: relative;
+   
 
-
-        input {
-            padding-right: 3rem;
-        }
-
-        i {
-            position: absolute;
-            top: 25%;
-            right: 10px;
-            transform: translateY(-25%);
-            color: var(--clr-primary);
-            font-size: 1.5rem;
-            pointer-events: none;
-        }
+    .form-control {
+        background-image: none;
     }
+
 }
