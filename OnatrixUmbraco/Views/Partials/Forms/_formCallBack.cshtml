@@ -1,0 +1,43 @@
+﻿@using OnatrixUmbraco.ViewModels
+@model FormCallBackViewModel 
+
+
+@using (Html.BeginUmbracoForm("HandleCallBackForm", "FormSurface", FormMethod.Post, new { novalidate = "novalidate", id = "formCallBack" }))
+{
+    <div class="form-group">
+        <label hidden asp-for="Name"></label>
+        <input type="text" class="form-control @(ViewData.ModelState["Name"]?.Errors.Any() == true ? "is-invalid" : "")"
+               asp-for="Name" id="nameInput" placeholder="Name" />
+        <span asp-validation-for="Name" class="invalid-feedback"></span>
+    </div>
+
+    <div class="form-group">
+        <label hidden asp-for="Email"></label>
+        <input type="email" class="form-control @(ViewData.ModelState["Email"]?.Errors.Any() == true ? "is-invalid" : "")"
+               asp-for="Email" id="emailInput" placeholder="Email address" />
+        <span asp-validation-for="Email" class="invalid-feedback"></span>
+    </div>
+
+    <div class="form-group">
+        <label hidden asp-for="Phone"></label>
+        <input type="tel" class="form-control @(ViewData.ModelState["Phone"]?.Errors.Any() == true ? "is-invalid" : "")"
+               asp-for="Phone" id="phoneInput" placeholder="Phone" />
+        <span asp-validation-for="Phone" class="invalid-feedback"></span>
+    </div>
+
+    <div class="form-group">
+        <label hidden asp-for="Email"></label>
+        <select  class="form-select @(ViewData.ModelState["SelectedOption"]?.Errors.Any() == true ? "is-invalid" : "")"
+            asp-for="SelectedOption" id="selectInput">
+            <option value="">Please select an option</option>
+            <option value="1">Financial consulting</option>
+            <option value="2">Business strategy</option>
+            <option value="3">Tax planning</option>
+        </select>
+        <span asp-validation-for="SelectedOption" class="invalid-feedback"></span>
+    </div>
+
+    <div class="form-button">
+        <button type="submit">Submit</button>
+    </div>
+}

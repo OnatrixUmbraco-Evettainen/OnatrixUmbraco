@@ -28,6 +28,8 @@
 
     var buttonClass = $"{type} {alignment}";
 
+    var addSpaceToBottom = Model.Content.Value<bool>("addSpaceToBottom");
+
 }
 
-<a href="@buttonUrl.Url" target="@buttonUrl.Target" class="@buttonClass margin-b mt-2">@buttonText</a>
+<a href="@buttonUrl.Url" target="@buttonUrl.Target" class="@buttonClass mt-2 @(addSpaceToBottom ? "margin-b" : "mb-3") ">@buttonText</a>

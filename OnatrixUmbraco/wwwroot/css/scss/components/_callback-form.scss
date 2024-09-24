@@ -1,0 +1,20 @@
+.call-back-form {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    .form-header {
+        background-color: var(--clr-primary);
+
+        .text-lead {
+            color: var(--clr-accent);
+            padding: 1.5rem 2rem 1.5rem 2rem;
+        }
+    }
+
+    .text-xs {
+        padding: 1.5rem 2rem .5rem 2rem;
+    }
+
+    form {
+        padding: 1.5rem 2rem 2rem 2rem;
+    }
+}

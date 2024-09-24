@@ -24,6 +24,9 @@
 
     var placeContentCenter = Model.Content.Value<bool>("placeContentCenter");
 
+
+    var createOverlap = Model.Content.Value<bool>("createOverlap");
+
 }
 
 
@@ -38,7 +41,7 @@
             <div class="content">
             @foreach (var area in Model.Areas)
             {
-                <div class="row @(placeContentCenter ? "justify-content-center" : "")">
+                <div class="row @(placeContentCenter ? "justify-content-center" : "") @(createOverlap ? "overlap" : "") ">
                     @foreach (var column in area)
                     {
                         @await Html.PartialAsync("~/Views/Partials/blockgrid/components/columns.cshtml", column)

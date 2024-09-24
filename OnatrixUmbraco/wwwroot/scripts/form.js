@@ -192,7 +192,7 @@ function initValidation() {
     let forms = document.querySelectorAll('form');
 
     forms.forEach(form => {
-        let inputs = form.querySelectorAll('input, textarea');
+        let inputs = form.querySelectorAll('input, textarea, select');
 
         inputs.forEach(input => {
             if (input.dataset.val === 'true') {
@@ -212,9 +212,14 @@ function applyInitialValidationClasses(element) {
 function attachValidationHandler(element) {
     if (element.dataset.validation === 'password') {
         element.addEventListener('keyup', (e) => passwordValidator(e.target));
-    } else if (element.type === 'checkbox') {
+    }
+    else if (element.type === 'checkbox') {
         element.addEventListener('change', (e) => checkboxValidator(e.target));
-    } else {
+    }
+    else if (element.tagName === 'SELECT') {
+        element.addEventListener('change', (e) => selectValidator(e.target));
+    }
+    else {
         element.addEventListener('keyup', (e) => validateByType(e.target));
     }
 }
@@ -275,9 +280,14 @@ const passwordValidator = (element) => {
     }
 }
 
-// Validerar kryssrutor
+
 const checkboxValidator = (element) => {
     formErrorHandler(element, element.checked);
+}
+
+const selectValidator = (element) => {
+    const isValid = element.value !== '';
+    formErrorHandler(element, isValid)
 }
 
 

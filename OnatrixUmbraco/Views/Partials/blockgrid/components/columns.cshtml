@@ -5,13 +5,23 @@
 
 @{
   
-  var mobileColumns = Model.Content.Value<int>("mobileColumns") > 0 ? Model.Content.Value<int>("mobileColumns") : 12;
-  var tabletColumns = Model.Content.Value<int>("tabletColumns") > 0 ? Model.Content.Value<int>("tabletColumns") : 12;
-  var laptopColumns = Model.Content.Value<int>("laptopColumns") > 0 ? Model.Content.Value<int>("laptopColumns") : 12;
-  var desktopColumns = Model.ColumnSpan;
-  var columnClass = $"col-{mobileColumns} col-md-{tabletColumns} col-lg-{laptopColumns} col-xl-{desktopColumns}";
+    var mobileColumns = Model.Content.Value<int>("mobileColumns") > 0 ? Model.Content.Value<int>("mobileColumns") : 12;
+    var tabletColumns = Model.Content.Value<int>("tabletColumns") > 0 ? Model.Content.Value<int>("tabletColumns") : 12;
+    var laptopColumns = Model.Content.Value<int>("laptopColumns") > 0 ? Model.Content.Value<int>("laptopColumns") : 12;
+    var desktopColumns = Model.ColumnSpan;
+    var columnClass = $"col-{mobileColumns} col-md-{tabletColumns} col-lg-{laptopColumns} col-xl-{desktopColumns}";
+
+
+    var alignContentTo = Model.Content.Value<string>("alignContentTo");
+    var align = alignContentTo switch
+    {
+        "Top" => "align-self-start",
+        "Center" => "align-self-center",
+        "Bottom" => "align-self-end",
+        _ => "align-self-center"
+    };
 }
    
-<div class="@columnClass ">
+<div class="@columnClass @align ">
   @await Html.GetBlockGridItemAreasHtmlAsync(Model)
 </div>

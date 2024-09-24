@@ -58,6 +58,13 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops ContainerBackgroundImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "containerBackgroundImage");
 
 		///<summary>
+		/// Create Overlap: By selecting this option, the content will be positioned partially on top of the previous section, creating an overlapping effect.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[ImplementPropertyType("createOverlap")]
+		public virtual bool CreateOverlap => this.Value<bool>(_publishedValueFallback, "createOverlap");
+
+		///<summary>
 		/// Place Content Center
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]

@@ -8,11 +8,6 @@
 
 @inject IPublishedValueFallback PublishedValueFallback
 @inject IPublishedUrlProvider PublishedUrlProvider
-@*
-    This snippet displays a list of links of the pages immediately under the top-most page in the content tree.
-    This is the home page for a standard website.
-    It also highlights the current active page/section in the navigation with the CSS class "current".
-*@
 
 @{ 
     var selection = Model.Root().Children.Where(x => x.IsVisible(PublishedValueFallback)).ToArray(); 
@@ -28,44 +23,62 @@
 
 <header>
 
-     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container">
-      
-       <a class="navbar-brand" href="/"> 
+    <nav class="mainnav">
+
+        <div class="container d-flex align-items-center justify-content-between">
+
+            <a class="mainnav__logo" href="/"> 
                 <img src="@siteLogotype" alt="@siteName"> 
             </a>
 
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+            <span id="nav-label" hidden>Navigation</span>
+            <button id="btnToggle" class="mainnav__open" aria-expanded="false" aria-labelledby="nav-label">
+                <span class="hamburger"></span>
+            </button>
 
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        
-        
-        @if (selection?.Length > 0)
-        {
-            <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-                @foreach (var item in selection)
+            <div class="mainnav__menu " role="dialog" aria-labelledby="nav-label">
+                @if (selection?.Length > 0)
                 {
-                    <li class="nav-item @(item.IsAncestorOrSelf(Model) ? "current" : null)">
-                        <a class="nav-link" href="@item.Url(PublishedUrlProvider)">@item.Name</a>
-                    </li>
+                    <ul class="mainnav__links">
+                        @foreach (var item in selection)
+                        {
+                            <li class="mainnav__item @(item.IsAncestorOrSelf(Model) ? "active" : null)">
+                                <a class="mainnav__link" href="@item.Url(PublishedUrlProvider)">@item.Name</a>
+                            </li>
+                        }
+                    </ul>
                 }
-            </ul>
-        }
 
 
-        <!-- <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form> -->
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <div class="mainnav__socialmedia">
+                    @await Html.PartialAsync("socialmedia.cshtml")
+                </div>
+
+              
+
+            </div>
+
+            
+
+        </div>
+
+       
+            
+
+        
+        
+            
 
 
-      </div>
-    </div>
-  </nav>
+        
+
+
+        
+    </nav>
 
    
 

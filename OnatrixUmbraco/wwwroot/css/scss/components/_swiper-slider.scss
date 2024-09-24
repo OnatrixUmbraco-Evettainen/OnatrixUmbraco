@@ -6,16 +6,22 @@
 
 .swiper {
     width: 100%;
-    height: 900px;
+    height: 100%;
     margin-left: auto;
     margin-right: auto;
+   
 }
 
 .swiper-slide {
-   height: max-content;
+   
 }
 
+
+
 .swiper-wrapper {
+    height: 100vh;
+    
+
   
 }
 
@@ -25,56 +31,81 @@
 }
 
 
-
-
-
-
-.swiper-button-prev,
-.swiper-button-next {
-    position: relative; 
-    background: none;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    color: #444;
-    font-weight: bold;
-}
-
-
-.swiper-button-prev:disabled,
-.swiper-button-next:disabled {
-    color: #ccc;
-    cursor: not-allowed;
-}
-
-
 .custom-pagination {
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    gap: 30px; 
+    gap: 1rem;
+
+    padding-block: .5rem;
+
+    margin-top: -1rem;
 }
+
+.custom-prev, .custom-next {
+    border: none;
+    background-color: inherit;
+
+    @include text-lg;
+    font-weight: 600;
+    color: var(--clr-gray-400);
+
+   
+}
+
+
+
+.swiper-button {
+
+    
+    
+}
+
+.swiper-button-disabled {
+    color: var(--clr-border-gray);
+
+    
+}
+
+
+
+
+
 
 .swiper-pagination {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: .5rem;
+
+    position: relative;
+    bottom: 0!important;
+    width: auto!important;
 }
 
 .swiper-pagination-bullet {
-    display: inline-block;
-    margin: 0 5px;
-    padding: 5px 10px;
-    background-color: #eee;
+    @include text-lg;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    background-color: var(--clr-neutral);
     border-radius: 50%;
-    font-size: 16px;
     cursor: pointer;
+
+    transition: all .2s ease-in-out!important;
+    
+}
+
+.swiper-pagination-bullet:hover {
+    outline: 1px solid var(--clr-gray-400);
+    opacity: 1;
 }
 
 .swiper-pagination-bullet-active {
-    background-color: #007bff;
-    color: white;
-    font-weight: bold;
+    background-color: var(--clr-neutral);
+    outline: 1px solid var(--clr-gray-400);
+    color: var(--clr-primary);
 }
+
+

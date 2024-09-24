@@ -1,0 +1,26 @@
+.socialmedia {
+    display: flex;
+    align-items: stretch;
+
+
+    .socialmedia-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        padding: 16px 18px;
+        font-size: 16px;
+        color: var(--clr-neutral);
+        border-left: 1px solid var(--clr-main-light);
+        height: 100%;
+        transition: color .2s ease-in-out;
+
+        &:last-child {
+            border-right: 1px solid var(--clr-main-light);
+        }
+
+        &:hover {
+            color: var(--clr-secondary);
+        }
+    }
+}

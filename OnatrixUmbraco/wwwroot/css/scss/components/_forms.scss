@@ -2,7 +2,7 @@ form {
     //padding: 1rem 2rem 3rem 2rem;
     //padding: 1rem 2rem 3rem 2rem;
 
-   
+
 
 
     input[type="text"],
@@ -13,7 +13,7 @@ form {
         width: 100%;
         padding: 10px;
         border-radius: 0;
-        margin-bottom: .875rem;
+        margin-bottom: 1.5rem;
     }
 
 
@@ -28,6 +28,14 @@ form {
         resize: none;
     }
 
+    .form-control {
+        box-shadow: none !important;
+
+        &:focus {
+            border-color: var(--clr-primary);
+        }
+    }
+
 
 
     .form-select {
@@ -38,9 +46,13 @@ form {
         border-radius: 0;
     }
 
-    select {
-    }
+    .form-select {
+        box-shadow: none !important;
 
+        &:focus {
+            border-color: var(--clr-primary);
+        }
+    }
 
     button[type="submit"] {
         @include text-m;
@@ -52,6 +64,7 @@ form {
         width: 100%;
         padding: 12px;
         transition: all .2s ease-in-out;
+        margin-top: .5rem;
 
         &:hover {
             background-color: var(--clr-secondary);
@@ -60,8 +73,9 @@ form {
 }
 
 .invalid-feedback {
+    position: absolute;
     padding: 0 .2rem;
-    margin-top: -1.2rem;
+    margin-top: -1.5rem;
     margin-bottom: .5rem;
 }
 

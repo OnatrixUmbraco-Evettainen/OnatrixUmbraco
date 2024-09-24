@@ -1,8 +1,10 @@
 .services-card {
     background-color: var(--clr-neutral);
     overflow: hidden;
-    position: relative;
     border: 2px solid var(--clr-white-100);
+    max-width: 100%;
+    width: 100%;
+    min-height: 350px;
 
 
     a {

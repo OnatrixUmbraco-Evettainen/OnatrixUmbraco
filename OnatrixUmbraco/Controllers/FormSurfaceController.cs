@@ -66,9 +66,8 @@ public class FormSurfaceController(IUmbracoContextAccessor umbracoContextAccesso
         return RedirectToCurrentUmbracoPage();
     }
 
-
     [HttpPost]
-    public async Task<IActionResult> HandleSupportForm(FormSupportViewModel form)
+    public async Task<IActionResult> HandleCallBackForm (FormCallBackViewModel form)
     {
         if (!ModelState.IsValid)
         {
@@ -76,13 +75,35 @@ public class FormSurfaceController(IUmbracoContextAccessor umbracoContextAccesso
         }
 
         var emailSent = await _emailService.SendSupportConfirmationEmailAsync(form.Email);
-        if (!emailSent)
+        if (emailSent)
+        {
+            TempData["Success"] = "Thanks for your request! An email has been sent to your inbox. We are working to assist you as quickly as we can.";
+        }
+        else
         {
             TempData["Error"] = "An error occurred while sending the email. Please try again later.";
         }
-
-        TempData["Success"] = "Thanks for your request! An email has been sent to your inbox. We’re working to assist you as quickly as we can.";
         return RedirectToCurrentUmbracoPage();
     }
 
+
+    [HttpPost]
+    public async Task<IActionResult> HandleSupportForm (FormSupportViewModel form)
+    {
+        if (!ModelState.IsValid)
+        {
+            return CurrentUmbracoPage();
+        }
+
+        var emailSent = await _emailService.SendSupportConfirmationEmailAsync(form.Email);
+        if (emailSent)
+        {
+            ViewData["Success"] = "Thanks for your request! An email has been sent to your inbox. We are working to assist you as quickly as we can.";
+        }
+        else
+        {
+            ViewData["Error"] = "An error occurred while sending the email. Please try again later.";
+        }
+        return RedirectToCurrentUmbracoPage();
+    }
 }
