@@ -88,6 +88,27 @@ public class FormSurfaceController(IUmbracoContextAccessor umbracoContextAccesso
 
 
     [HttpPost]
+    public async Task<IActionResult> HandleContactForm (FormContactViewModel form)
+    {
+        if (!ModelState.IsValid)
+        {
+            return CurrentUmbracoPage();
+        }
+
+        var emailSent = await _emailService.SendSupportConfirmationEmailAsync(form.Email);
+        if (emailSent)
+        {
+            TempData["Success"] = "Thanks for your request! An email has been sent to your inbox. We are working to assist you as quickly as we can.";
+        }
+        else
+        {
+            TempData["Error"] = "An error occurred while sending the email. Please try again later.";
+        }
+        return RedirectToCurrentUmbracoPage();
+    }
+
+
+    [HttpPost]
     public async Task<IActionResult> HandleSupportForm (FormSupportViewModel form)
     {
         if (!ModelState.IsValid)

@@ -14,3 +14,13 @@
     --clr-border-gray: #EAEAEA;
     --clr-border-400: #C7C8C9;
 }
+
+
+.bg-transparent {
+    background-color: transparent;
+}
+
+
+.bg-white {
+    background-color: var(--clr-neutral);
+}

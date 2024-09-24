@@ -55,20 +55,15 @@ form {
     }
 
     button[type="submit"] {
-        @include text-m;
-        font-weight: 700;
+       
         border: none;
-        color: var(--clr-primary);
-        background-color: var(--clr-accent);
-        border-radius: 0;
+       
+        border-radius: 4px;
         width: 100%;
         padding: 12px;
         transition: all .2s ease-in-out;
         margin-top: .5rem;
 
-        &:hover {
-            background-color: var(--clr-secondary);
-        }
     }
 }
 

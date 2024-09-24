@@ -6,20 +6,20 @@
 
 
 @{
-   // var sectionTitle = Model?.Content.Value<string>("sectionTitle") ?? "";
-   // var sectionId = sectionTitle?.ToString().ToLower().Trim().Replace(" ", "-");
+    // var sectionTitle = Model?.Content.Value<string>("sectionTitle") ?? "";
+    // var sectionId = sectionTitle?.ToString().ToLower().Trim().Replace(" ", "-");
 
     //var spacingTopClass = Model.Content.Value<bool>("addSpaceToTop") ? "padding-t" : "";
     //var spacingBottomClass = Model.Content.Value<bool>("addSpaceToBottom") ? "padding-b" : "";
 
-    
 
-    
+
+
 
     //var sectionBackgroundColor = Model.Content.Value<string>("sectionBackgroundColor") ?? "";
     var containerBackgroundImage = Model?.Content.Value<IPublishedContent>("containerBackgroundImage")?.Url() ?? null;    
 
-    
+
     var containsColumns = Model.Areas?.Any(area => area.Any(column => column.Content.ContentType.Alias == "columns")) ?? false;
 
     var placeContentCenter = Model.Content.Value<bool>("placeContentCenter");
@@ -27,10 +27,20 @@
 
     var createOverlap = Model.Content.Value<bool>("createOverlap");
 
+    var containerBackgroundColor = Model.Content.Value<string>("containerBackgroundColor") ?? "";
+
+
+    var colorLabel = Model.Content.Value<ColorPickerValueConverter.PickedColor>("containerBackgroundColor")?.Label;
+    colorLabel = string.IsNullOrEmpty(colorLabel) || colorLabel.ToLower() == "none" ? "transparent" : colorLabel.ToLower();
+
+    var spacingTopClass = Model.Content.Value<bool>("addSpaceToTop") ? "padding-t" : "";
+    var spacingBottomClass = Model.Content.Value<bool>("addSpaceToBottom") ? "padding-b" : "";
+
+    var shadowClass = Model.Content.Value<bool>("addShadow") ? "container-shadow" : "";
 }
 
 
- <div class="container">
+<div class="container bg-@colorLabel @spacingTopClass @spacingBottomClass @shadowClass">
 
     @if(!string.IsNullOrEmpty(containerBackgroundImage))
     {

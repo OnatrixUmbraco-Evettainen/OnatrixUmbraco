@@ -16,14 +16,26 @@
     var sectionBackgroundColorHeight = Model.Content.HasValue("sectionColorHeight") ? Model.Content.Value<int>("sectionColorHeight") : 100;  
    
     var sectionBackgroundImage = Model?.Content.Value<IPublishedContent>("sectionBackgroundImage")?.Url() ?? null;  
+    var sectionImageHeight = Model.Content.HasValue("sectionImageHeight") ? Model.Content.Value<int>("sectionImageHeight") : 100; 
+
+    var contentAlignment = Model.Content.Value<string>("contentAlignment");
+    var alignmentClass = contentAlignment switch 
+    {
+        "Top" => "justify-content-start",
+        "Center" => "justify-content-center",
+        "Bottom" => "justify-content-end",
+        _=> "justify-content-center"
+    };
+
+    var customHeight = Model.Content.HasValue("sectionHeight") ? Model.Content.Value<int>("sectionHeight") : 100;       
 }
 
 
 
-<section id="@sectionId" class="section-wrapper @spacingTopClass @spacingBottomClass">
+<section id="@sectionId" class="section-wrapper @spacingTopClass @spacingBottomClass d-flex flex-column  @alignmentClass" data-height="@customHeight">
     @if (!string.IsNullOrEmpty(sectionBackgroundImage))
     {
-        <div class="section-bg-image" style="background-image: url(@sectionBackgroundImage)"></div>
+        <div class="section-bg-image" data-height="@sectionImageHeight" style="background-image: url(@sectionBackgroundImage)"></div>
     }
 
     @if(!string.IsNullOrEmpty(sectionBackgroundColor))

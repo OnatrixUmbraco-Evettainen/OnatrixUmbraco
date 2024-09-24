@@ -64,6 +64,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual bool AddSpaceToTop => this.Value<bool>(_publishedValueFallback, "addSpaceToTop");
 
 		///<summary>
+		/// Content Alignment
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("contentAlignment")]
+		public virtual string ContentAlignment => this.Value<string>(_publishedValueFallback, "contentAlignment");
+
+		///<summary>
 		/// Section Background Color
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
@@ -85,6 +93,20 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[ImplementPropertyType("sectionColorHeight")]
 		public virtual decimal SectionColorHeight => this.Value<decimal>(_publishedValueFallback, "sectionColorHeight");
+
+		///<summary>
+		/// Section Height: Enter your custom height (px)
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[ImplementPropertyType("sectionHeight")]
+		public virtual int SectionHeight => this.Value<int>(_publishedValueFallback, "sectionHeight");
+
+		///<summary>
+		/// Section Image Height
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[ImplementPropertyType("sectionImageHeight")]
+		public virtual decimal SectionImageHeight => this.Value<decimal>(_publishedValueFallback, "sectionImageHeight");
 
 		///<summary>
 		/// Section Title

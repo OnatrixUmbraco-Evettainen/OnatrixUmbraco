@@ -8,11 +8,21 @@
     });
 
 
-    const formHeaders = document.querySelectorAll('.form-header');
-    formHeaders.forEach(function (formHeader) {
-        let color = formHeader.getAttribute('data-color');
-        if (color) {
-            formHeader.style.setProperty('--dynamic-color', color);
+    const imageDivs = document.querySelectorAll('.section-bg-image');
+    imageDivs.forEach(function (imageDiv) {
+        let height = imageDiv.getAttribute('data-height');
+        if (height) {
+            imageDiv.style.setProperty('--image-height', height + '%');
+        }
+    });
+
+    const sectionWrappers = document.querySelectorAll('.section-wrapper');
+    sectionWrappers.forEach(function (sectionWrapper) {
+        let height = sectionWrapper.getAttribute('data-height');
+        if (height === '100') {
+            sectionWrapper.style.setProperty('--section-height', height + '%');
+        } else if (height) {
+            sectionWrapper.style.setProperty('--section-height', height + 'px');
         }
     });
  

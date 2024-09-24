@@ -1,0 +1,19 @@
+﻿@using OnatrixUmbraco.ViewModels
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+  
+
+    var viewModel = new FormContactViewModel();
+}
+
+<div class="contact-form p-5">
+   
+
+
+    @await Html.PartialAsync("~/views/partials/forms/_formContact.cshtml", viewModel)
+
+
+</div>
