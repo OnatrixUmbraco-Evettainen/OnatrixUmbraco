@@ -7,7 +7,9 @@
 	Layout = "mainLayout.cshtml";
     ViewBag.Title = Model?.Value("pageTitle") ?? null;
     
-
+ var selection = Umbraco.Content(Guid.Parse("810548e7-7402-4c7e-bc7c-84b84598e777"))
+    .ChildrenOfType("projectItemTemplate")
+    .Where(x => x.IsVisible()).ToList();
         
 }
 
@@ -16,13 +18,19 @@
     @await Html.PartialAsync("partials/static/breadcrumbs.cshtml")
 }
 
+
+
 @await Html.GetBlockGridHtmlAsync(Model.TopLayout)
+
 <section class="projects padding-tb">
     <div class="container">
         <div class="row justify-content-between padding-b ">
 
             <div class="content col-12 col-lg-8 d-flex flex-column gap-1 order-1 ">
-                @Html.GetBlockListHtml(Model.MainLayout)
+
+            
+            @await Html.GetBlockGridHtmlAsync(Model.MainLayout)
+          
             </div>
 
             <div class="vertical-line"></div>

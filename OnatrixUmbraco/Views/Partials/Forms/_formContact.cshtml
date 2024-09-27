@@ -4,21 +4,21 @@
 @using (Html.BeginUmbracoForm("HandleContactForm", "FormSurface", FormMethod.Post, new { novalidate = "novalidate", id = "formContact" }))
 {
     <div class="row justify-content-center">
-        <div class="form-group col-6">
+        <div class="form-group col-12 col-sm-6">
             <label hidden asp-for="Name"></label>
             <input type="text" class="form-control @(ViewData.ModelState["Name"]?.Errors.Any() == true ? "is-invalid" : "")"
                     asp-for="Name" id="nameInput" placeholder="Name" />
             <span asp-validation-for="Name" class="invalid-feedback"></span>
         </div>
 
-        <div class="form-group col-6">
+        <div class="form-group col-12 col-sm-6">
             <label hidden asp-for="Phone"></label>
             <input type="tel" class="form-control @(ViewData.ModelState["Phone"]?.Errors.Any() == true ? "is-invalid" : "")"
                     asp-for="Phone" id="phoneInput" placeholder="Phone" />
             <span asp-validation-for="Phone" class="invalid-feedback"></span>
         </div>
 
-        <div class="form-group col-6">
+        <div class="form-group col-12 col-sm-6">
             <label hidden asp-for="Email"></label>
             <input type="email" class="form-control @(ViewData.ModelState["Email"]?.Errors.Any() == true ? "is-invalid" : "")"
                     asp-for="Email" id="emailInput" placeholder="Email address" />
@@ -27,7 +27,7 @@
 
         
 
-        <div class="form-group col-6">
+        <div class="form-group col-12 col-sm-6">
             <label hidden asp-for="Email"></label>
             <select class="form-select @(ViewData.ModelState["SelectedOption"]?.Errors.Any() == true ? "is-invalid" : "")"
                     asp-for="SelectedOption" id="selectInput">
@@ -39,7 +39,7 @@
             <span asp-validation-for="SelectedOption" class="invalid-feedback"></span>
         </div>
 
-        <div class="form-button col-2">
+        <div class="form-button col-12 col-md-4 col-lg-2">
             <button class="btn-primary" type="submit">Submit</button>
         </div>
     </div>

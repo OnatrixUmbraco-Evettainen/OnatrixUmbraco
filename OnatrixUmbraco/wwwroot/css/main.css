@@ -242,7 +242,7 @@ h5 {
 @media (min-width: 1200px) {
   .overlap {
     gap: 0;
-    margin-top: -8rem;
+    margin-top: -9rem;
   }
 }
 
@@ -252,11 +252,11 @@ h5 {
 }
 
 .padding-t {
-  padding-top: clamp(2rem, 1.1111rem + 4.4444vw, 5rem);
+  padding-top: clamp(2rem, 0.8148rem + 5.9259vw, 6rem);
 }
 
 .padding-b {
-  padding-bottom: clamp(2rem, 1.1111rem + 4.4444vw, 5rem);
+  padding-bottom: clamp(2rem, 0.8148rem + 5.9259vw, 6rem);
 }
 
 .margin-tb {
@@ -695,16 +695,42 @@ select:-webkit-autofill:focus {
   margin-right: auto;
 }
 
-.swiper-wrapper {
-  height: 100vh;
+.mySwiper .swiper-wrapper {
+  height: auto;
+}
+@media (min-width: 768px) {
+  .mySwiper .swiper-wrapper {
+    height: 900px;
+  }
+}
+.projectsSwiper .swiper-wrapper {
+  height: auto;
+}
+@media (min-width: 768px) {
+  .projectsSwiper .swiper-wrapper {
+    height: 1150px;
+  }
+}
+.projectsSwiper .swiper-wrapper .swiper-slide {
+  height: max-content !important;
+}
+@media (min-width: 768px) {
+  .projectsSwiper .swiper-wrapper .swiper-slide {
+    margin: 0 !important;
+  }
 }
 
 .custom-pagination {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  padding-block: 0.5rem;
-  margin-top: -1rem;
+  display: none;
+}
+@media (min-width: 768px) {
+  .custom-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding-block: 0.5rem;
+    margin-top: -1rem;
+  }
 }
 
 .custom-prev, .custom-next {

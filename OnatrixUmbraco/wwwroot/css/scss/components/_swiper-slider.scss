@@ -4,6 +4,7 @@
 
 
 
+
 .swiper {
     width: 100%;
     height: 100%;
@@ -12,18 +13,62 @@
    
 }
 
-.swiper-slide {
-   
+.mySwiper {
+    .swiper-wrapper {
+
+        height: auto;
+
+        @include md {
+            height: 900px;
+        }
+    }
+
+
+    .swiper-slide {
+    }
+}
+
+.projectsSwiper {
+ 
+
+    .swiper-wrapper {
+        height: auto;
+
+        @include md {
+            height: 1150px;
+        }
+
+
+
+        .swiper-slide {
+            height: max-content!important;
+           
+
+            @include md {
+                margin: 0 !important;
+            }
+        }
+    }
 }
 
 
 
-.swiper-wrapper {
-    height: 100vh;
+
+
+
+//.swiper-wrapper {
+//    height: 950px !important;
+//    border: 1px solid red;
     
+//}
 
-  
-}
+//.swiper-wrapper.projects-wrapper {
+//    height: 1200px !important;
+//}
+
+//.swiper-slide.projects {
+//    margin: 0!important;
+//}
 
 .swiper-slide img {
 
@@ -32,13 +77,15 @@
 
 
 .custom-pagination {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+    display: none;
 
-    padding-block: .5rem;
-
-    margin-top: -1rem;
+    @include md {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        padding-block: .5rem;
+        margin-top: -1rem;
+    }
 }
 
 .custom-prev, .custom-next {

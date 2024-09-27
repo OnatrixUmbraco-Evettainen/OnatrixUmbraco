@@ -71,7 +71,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("mainLayout")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel MainLayout => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "mainLayout");
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockGridModel MainLayout => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockGridModel>(_publishedValueFallback, "mainLayout");
 
 		///<summary>
 		/// Page Title

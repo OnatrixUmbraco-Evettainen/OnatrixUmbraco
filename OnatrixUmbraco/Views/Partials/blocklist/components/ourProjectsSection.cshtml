@@ -1,0 +1,67 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var selection = Umbraco.Content(Guid.Parse("810548e7-7402-4c7e-bc7c-84b84598e777"))
+    .ChildrenOfType("projectItemTemplate")
+    .Where(x => x.IsVisible()).ToList();
+
+ 
+}
+
+
+
+@if (selection != null && selection.Any()) 
+{
+
+    <div class="swiper projectsSwiper">
+
+        <div class="swiper-wrapper projects-wrapper">
+
+            @for (int i = 0; i < selection.Count; i++)
+            {
+                var item = selection[i];
+                var pageTitle = item?.Value<string>("pageTitle") ?? "";
+                var created = item?.CreateDate.ToString("MMMM dd, yyyy");
+                var thumbnail = item?.Value<IPublishedContent>("projectThumbnail")?.Url() ?? "";
+                var excerpt = item?.Value<string>("projectExcerpt") ?? "";	
+
+                <div class="swiper-slide projects">
+                    <div class="projects-items d-flex flex-column flex-md-row gap-2 pt-2 pb-2 ">
+                        <img class="col-12 col-md-6" src="@thumbnail" alt="@item.Name">
+                        <div class="projects-item col-12 col-md-6  d-flex flex-column gap-1 p-2">
+                           
+                                <h4>@item.Name</h4>
+                                <div class="projects-date pt-1">
+                                    <i class="fa-regular fa-calendar-days text-note"></i>
+                                    <p class="text-s text-note">@created</p>
+                                </div>
+                            
+                            <p class="flex-grow-1 text-s">@excerpt</p>
+                            <a href="@item.Url()" class="text-s fw-bold projects-link"> Read more <i class="fa-regular fa-arrow-right"></i> </a>
+                        </div>
+                       
+                    </div>  
+                    
+                </div>
+
+                @if ((i + 1) % 4 != 0)
+                {
+                    <hr>
+                }
+
+            }
+
+            
+        </div>
+
+        <div class="custom-pagination">
+            <button class="custom-prev">Prev</button>
+            <div class="swiper-pagination"></div>
+            <button class="custom-next">Next</button>
+        </div>
+
+
+    </div>
+}
