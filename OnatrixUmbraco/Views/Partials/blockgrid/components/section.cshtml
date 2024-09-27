@@ -13,13 +13,13 @@
     var spacingBottomClass = Model.Content.Value<bool>("addSpaceToBottom") ? "padding-b" : "";
 
     var sectionBackgroundColor = Model.Content.Value<string>("sectionBackgroundColor") ?? "";
-    var sectionBackgroundColorHeight = Model.Content.HasValue("sectionColorHeight") ? Model.Content.Value<int>("sectionColorHeight") : 100;  
+    var sectionBackgroundColorHeight = Model.Content.HasValue("sectionBackgroundColorHeight") ? Model.Content.Value<int>("sectionBackgroundColorHeight") : 100;  
    
     var sectionBackgroundImage = Model?.Content.Value<IPublishedContent>("sectionBackgroundImage")?.Url() ?? null;  
     var sectionImageHeight = Model.Content.HasValue("sectionImageHeight") ? Model.Content.Value<int>("sectionImageHeight") : 100; 
 
-    var contentAlignment = Model.Content.Value<string>("contentAlignment");
-    var alignmentClass = contentAlignment switch 
+    var itemsAlignment = Model.Content.Value<string>("itemsAlignment");
+    var alignmentClass = itemsAlignment switch 
     {
         "Top" => "justify-content-start",
         "Center" => "justify-content-center",
@@ -27,7 +27,7 @@
         _=> "justify-content-center"
     };
 
-    var customHeight = Model.Content.HasValue("sectionHeight") ? Model.Content.Value<int>("sectionHeight") : 100;       
+    var customHeight = Model.Content.HasValue("sectionHeight") ? Model.Content.Value<int>("sectionHeight") : 100;      
 }
 
 

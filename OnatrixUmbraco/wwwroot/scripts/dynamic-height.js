@@ -20,7 +20,7 @@
     sectionWrappers.forEach(function (sectionWrapper) {
         let height = sectionWrapper.getAttribute('data-height');
         if (height === '100') {
-            sectionWrapper.style.setProperty('--section-height', height + '%');
+            sectionWrapper.style.setProperty('--section-height', 100 + '%');
         } else if (height) {
             sectionWrapper.style.setProperty('--section-height', height + 'px');
         }

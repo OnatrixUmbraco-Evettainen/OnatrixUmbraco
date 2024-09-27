@@ -23,13 +23,15 @@
         "Start" => "align-self-start",
         "Center" => "align-self-center",
         "End" => "align-self-end",
+        "Full Width" => "",
         _ => "align-self-start"
     };    
 
     var buttonClass = $"{type} {alignment}";
 
+    var addSpaceToTop = Model.Content.Value<bool>("addSpaceToTop");
     var addSpaceToBottom = Model.Content.Value<bool>("addSpaceToBottom");
 
 }
 
-<a href="@buttonUrl.Url" target="@buttonUrl.Target" class="@buttonClass mt-2 @(addSpaceToBottom ? "margin-b" : "mb-3") ">@buttonText</a>
+<a href="@buttonUrl.Url" target="@buttonUrl.Target" class="@buttonClass @(addSpaceToTop ? "margin-t" : "mt-2") @(addSpaceToBottom ? "margin-b" : "mb-3") ">@buttonText</a>

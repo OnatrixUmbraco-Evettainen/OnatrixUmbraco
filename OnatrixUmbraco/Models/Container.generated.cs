@@ -50,28 +50,28 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Add Shadow 
+		/// Add Shadow
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[ImplementPropertyType("addShadow")]
 		public virtual bool AddShadow => this.Value<bool>(_publishedValueFallback, "addShadow");
 
 		///<summary>
-		/// Add Space To Bottom
+		/// Add Space To Bottom: Enable to add extra space (padding) at the bottom of the container.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[ImplementPropertyType("addSpaceToBottom")]
 		public virtual bool AddSpaceToBottom => this.Value<bool>(_publishedValueFallback, "addSpaceToBottom");
 
 		///<summary>
-		/// Add Space To Top
+		/// Add Space To Top: Enable to add extra space (padding) at the top of the container.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[ImplementPropertyType("addSpaceToTop")]
 		public virtual bool AddSpaceToTop => this.Value<bool>(_publishedValueFallback, "addSpaceToTop");
 
 		///<summary>
-		/// Container Background Color
+		/// Color: Select a background color for the container.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -79,7 +79,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual global::Umbraco.Cms.Core.PropertyEditors.ValueConverters.ColorPickerValueConverter.PickedColor ContainerBackgroundColor => this.Value<global::Umbraco.Cms.Core.PropertyEditors.ValueConverters.ColorPickerValueConverter.PickedColor>(_publishedValueFallback, "containerBackgroundColor");
 
 		///<summary>
-		/// Container Background Image
+		/// Image: Select a background image for the container.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]

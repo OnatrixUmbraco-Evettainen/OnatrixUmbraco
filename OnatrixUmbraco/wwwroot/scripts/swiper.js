@@ -18,13 +18,15 @@ document.addEventListener('DOMContentLoaded', function () {
             // När skärmbredden är större än 768px (t.ex. tablets och desktops)
             768: {
                 slidesPerView: 2,  // Antal slides per rad
+                slidesPerGroup: 2,
                 grid: {
                     rows: 2,  // Antal rader för större skärmar
                 },
                 spaceBetween: 30,  // Space between the cards for larger screens
             },
-            1024: {
+            992: {
                 slidesPerView: 3,
+                slidesPerGroup: 4,
                 grid: {
                     rows: 2,
                 },

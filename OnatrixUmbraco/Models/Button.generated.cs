@@ -57,7 +57,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual bool AddSpaceToBottom => this.Value<bool>(_publishedValueFallback, "addSpaceToBottom");
 
 		///<summary>
-		/// Button Alignment
+		/// Add Space To Top
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[ImplementPropertyType("addSpaceToTop")]
+		public virtual bool AddSpaceToTop => this.Value<bool>(_publishedValueFallback, "addSpaceToTop");
+
+		///<summary>
+		/// Alignment
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -73,7 +80,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string ButtonText => this.Value<string>(_publishedValueFallback, "buttonText");
 
 		///<summary>
-		/// Button Type
+		/// Type
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]

@@ -50,29 +50,29 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Add space to bottom
+		/// Add Space To Bottom: Enable to add extra space (padding) at the bottom of the section.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[ImplementPropertyType("addSpaceToBottom")]
 		public virtual bool AddSpaceToBottom => this.Value<bool>(_publishedValueFallback, "addSpaceToBottom");
 
 		///<summary>
-		/// Add space to top
+		/// Add Space To Top: Enable to add extra space (padding) at the top of the section.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[ImplementPropertyType("addSpaceToTop")]
 		public virtual bool AddSpaceToTop => this.Value<bool>(_publishedValueFallback, "addSpaceToTop");
 
 		///<summary>
-		/// Content Alignment
+		/// Alignment: Select how the content within the section should be vertically aligned. If no option is selected, the content will be aligned to the center by default.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("contentAlignment")]
-		public virtual string ContentAlignment => this.Value<string>(_publishedValueFallback, "contentAlignment");
+		[ImplementPropertyType("itemsAlignment")]
+		public virtual string ItemsAlignment => this.Value<string>(_publishedValueFallback, "itemsAlignment");
 
 		///<summary>
-		/// Section Background Color
+		/// Color: Select a background color for the section.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -80,7 +80,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual global::Umbraco.Cms.Core.PropertyEditors.ValueConverters.ColorPickerValueConverter.PickedColor SectionBackgroundColor => this.Value<global::Umbraco.Cms.Core.PropertyEditors.ValueConverters.ColorPickerValueConverter.PickedColor>(_publishedValueFallback, "sectionBackgroundColor");
 
 		///<summary>
-		/// Section Background Image
+		/// Color Fill Height: Select the percentage of the section height that the background color should fill (50% to 100%)
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[ImplementPropertyType("sectionBackgroundColorHeight")]
+		public virtual decimal SectionBackgroundColorHeight => this.Value<decimal>(_publishedValueFallback, "sectionBackgroundColorHeight");
+
+		///<summary>
+		/// Image: Select a background image for the section.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -88,21 +95,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops SectionBackgroundImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "sectionBackgroundImage");
 
 		///<summary>
-		/// Section Color Height
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
-		[ImplementPropertyType("sectionColorHeight")]
-		public virtual decimal SectionColorHeight => this.Value<decimal>(_publishedValueFallback, "sectionColorHeight");
-
-		///<summary>
-		/// Section Height: Enter your custom height (px)
+		/// Height: 0 = 100% height, any other value = fixed height in pixels
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[ImplementPropertyType("sectionHeight")]
 		public virtual int SectionHeight => this.Value<int>(_publishedValueFallback, "sectionHeight");
 
 		///<summary>
-		/// Section Image Height
+		/// Image Fill Height: Select the percentage of the section height that the background image should fill (50% to 100%)
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[ImplementPropertyType("sectionImageHeight")]
