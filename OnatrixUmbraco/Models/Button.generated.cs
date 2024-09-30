@@ -64,7 +64,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual bool AddSpaceToTop => this.Value<bool>(_publishedValueFallback, "addSpaceToTop");
 
 		///<summary>
-		/// Alignment
+		/// Alignment: Choose how the button is horizontally aligned. (Default is Left).
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -80,7 +80,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string ButtonText => this.Value<string>(_publishedValueFallback, "buttonText");
 
 		///<summary>
-		/// Type
+		/// Type: Choose the button type. (Default is Primary).
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]

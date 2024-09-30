@@ -27,7 +27,9 @@
         _=> "justify-content-center"
     };
 
-    var customHeight = Model.Content.HasValue("sectionHeight") ? Model.Content.Value<int>("sectionHeight") : 100;      
+    var customHeight = (Model.Content.HasValue("sectionHeight") && Model.Content.Value<int>("sectionHeight") > 0 ) ? Model.Content.Value<int>("sectionHeight") : 100;  
+
+    var hideImage = Model.Content.Value<bool>("hideImage") ? "hideImage" : "";        
 }
 
 
@@ -35,7 +37,7 @@
 <section id="@sectionId" class="section-wrapper @spacingTopClass @spacingBottomClass d-flex flex-column  @alignmentClass" data-height="@customHeight">
     @if (!string.IsNullOrEmpty(sectionBackgroundImage))
     {
-        <div class="section-bg-image" data-height="@sectionImageHeight" style="background-image: url(@sectionBackgroundImage)"></div>
+        <div class="section-bg-image @hideImage" data-height="@sectionImageHeight" style="background-image: url(@sectionBackgroundImage)"></div>
     }
 
     @if(!string.IsNullOrEmpty(sectionBackgroundColor))

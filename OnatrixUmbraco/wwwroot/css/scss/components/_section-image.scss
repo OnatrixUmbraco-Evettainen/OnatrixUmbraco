@@ -9,7 +9,15 @@
     background-position: center center;
     background-size: cover;
 
-    @include md {
+    @include sm {
         height: var(--image-height, 100%);
+    }
+}
+
+.section-bg-image.hideImage {
+    display: none;
+
+    @include md {
+        display:flex;
     }
 }

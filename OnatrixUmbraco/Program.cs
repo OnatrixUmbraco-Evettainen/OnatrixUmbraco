@@ -16,7 +16,7 @@ builder.Services.AddTransient<Signature>();
 builder.Services.AddTransient<IFormValidationService, FormValidationService>();
 builder.Services.AddTransient<IEmailService, EmailService>();
 builder.Services.AddSingleton(new ServiceBusClient(builder.Configuration.GetValue<string>("ServiceBus_Connection")));
-
+builder.Services.AddScoped<FormSubmissionService>();
 
 WebApplication app = builder.Build();
 

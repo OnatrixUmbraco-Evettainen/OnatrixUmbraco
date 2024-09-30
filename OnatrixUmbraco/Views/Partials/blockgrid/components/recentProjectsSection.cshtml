@@ -3,7 +3,7 @@
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 
 @{
-    var sectionTitle = Model.Content.Value<string>("sectionTitle") ?? "";
+    var sectionTitle = Model.Content.Value<string>("sectionTitle").ToUpper() ?? "";
     var sectionHeadline = Model.Content.Value<string>("sectionHeadline") ?? "";
 
     var sectionTitleColor = Model?.Content.Value<string>("sectionTitleColor") ?? null;

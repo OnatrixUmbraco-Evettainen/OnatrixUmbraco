@@ -10,7 +10,7 @@
     position: relative;
     height: 100%;
 
-    @include md {
+    @include xxl {
         height: var(--section-height, 100%);
     }
 }
@@ -19,14 +19,14 @@
     position: relative;
     height: 100%;
 
-    @include md {
+    @include xxl {
         height: var(--section-height, 100%);
     }
 }
 
 
 .container-shadow {
-    box-shadow: 1px 8px 10px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 18px 10px 5px rgba(0, 0, 0, 0.1);
 }
 
 

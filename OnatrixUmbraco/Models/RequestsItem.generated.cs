@@ -18,14 +18,14 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	/// <summary>Recent Projects Section</summary>
-	[PublishedModel("recentProjectsSection")]
-	public partial class RecentProjectsSection : PublishedElementModel
+	/// <summary>Requests Item</summary>
+	[PublishedModel("requestsItem")]
+	public partial class RequestsItem : PublishedContentModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
-		public new const string ModelTypeAlias = "recentProjectsSection";
+		public new const string ModelTypeAlias = "requestsItem";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
@@ -34,14 +34,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<RecentProjectsSection, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<RequestsItem, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public RecentProjectsSection(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+		public RequestsItem(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,35 +50,35 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Section Headline
+		/// Email
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("sectionHeadline")]
-		public virtual string SectionHeadline => this.Value<string>(_publishedValueFallback, "sectionHeadline");
+		[ImplementPropertyType("requestsEmail")]
+		public virtual string RequestsEmail => this.Value<string>(_publishedValueFallback, "requestsEmail");
 
 		///<summary>
-		/// Section Headline Color: Default = Primary
+		/// Name
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("sectionHeadlineColor")]
-		public virtual global::Umbraco.Cms.Core.PropertyEditors.ValueConverters.ColorPickerValueConverter.PickedColor SectionHeadlineColor => this.Value<global::Umbraco.Cms.Core.PropertyEditors.ValueConverters.ColorPickerValueConverter.PickedColor>(_publishedValueFallback, "sectionHeadlineColor");
+		[ImplementPropertyType("requestsName")]
+		public virtual string RequestsName => this.Value<string>(_publishedValueFallback, "requestsName");
 
 		///<summary>
-		/// Section Title
+		/// Option Selected
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("sectionTitle")]
-		public virtual string SectionTitle => this.Value<string>(_publishedValueFallback, "sectionTitle");
+		[ImplementPropertyType("requestsOptionSelected")]
+		public virtual string RequestsOptionSelected => this.Value<string>(_publishedValueFallback, "requestsOptionSelected");
 
 		///<summary>
-		/// Section Title Color: Default = Primary
+		/// Phone
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("sectionTitleColor")]
-		public virtual global::Umbraco.Cms.Core.PropertyEditors.ValueConverters.ColorPickerValueConverter.PickedColor SectionTitleColor => this.Value<global::Umbraco.Cms.Core.PropertyEditors.ValueConverters.ColorPickerValueConverter.PickedColor>(_publishedValueFallback, "sectionTitleColor");
+		[ImplementPropertyType("requestsPhone")]
+		public virtual string RequestsPhone => this.Value<string>(_publishedValueFallback, "requestsPhone");
 	}
 }

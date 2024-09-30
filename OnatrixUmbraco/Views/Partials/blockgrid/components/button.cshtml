@@ -20,9 +20,9 @@
     var buttonAlignment = Model.Content.Value<string>("buttonAlignment");
     var alignment = buttonAlignment switch 
     {
-        "Start" => "align-self-start",
+        "Left" => "align-self-start",
         "Center" => "align-self-center",
-        "End" => "align-self-end",
+        "Right" => "align-self-end",
         "Full Width" => "",
         _ => "align-self-start"
     };    

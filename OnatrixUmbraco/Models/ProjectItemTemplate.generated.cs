@@ -98,6 +98,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string ProjectExcerpt => this.Value<string>(_publishedValueFallback, "projectExcerpt");
 
 		///<summary>
+		/// Project Tags
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("projectTags")]
+		public virtual global::System.Collections.Generic.IEnumerable<string> ProjectTags => this.Value<global::System.Collections.Generic.IEnumerable<string>>(_publishedValueFallback, "projectTags");
+
+		///<summary>
 		/// Project Thumbnail
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]

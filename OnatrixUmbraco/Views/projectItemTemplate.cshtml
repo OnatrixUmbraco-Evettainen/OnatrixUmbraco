@@ -6,6 +6,8 @@
 	Layout = "mainLayout.cshtml";
     ViewBag.Title = Model?.Value("pageTitle") ?? null;
     
+    var tags = Model.Value<IEnumerable<string>>("projectTags") ?? [];
+    var created = Model?.CreateDate.ToString("MMMM dd, yyyy"); 
 }
 
 @if (!string.IsNullOrEmpty(ViewBag.Title))
@@ -14,23 +16,33 @@
 }
 
 
-
-
 <section class="projects-details padding-tb">
     <div class="container">
         <div class="row justify-content-between padding-b ">
-
             <div class="content col-12 col-lg-8 d-flex flex-column gap-1 order-1 ">
+                <div class="d-flex gap-2 align-items-center pb-4">
+                    <i class="fa-regular fa-calendar-days text-note"></i>
+                    <p class="text-s text-note m-0">@created</p>
+                </div>
                 @Model.Value("projectContent")
+                @if (tags != null && tags.Any())
+                {
+                    <div class="tags d-flex align-items-center flex-row gap-3 col-12 pt-3 ">
+                        <h4>Tags</h4>
+                        <div class="d-flex flex-wrap gap-2"> 
+                            @foreach (var tag in tags)
+                            {
+                                <p class="text-xs">@tag</p>
+                            }     
+                        </div>
+                    </div>
+                }
+                
             </div>
-
             <div class="vertical-line"></div>
-
             <aside class="col-12 col-lg-3 d-flex flex-column order-3">
                 @Html.GetBlockListHtml(Model.AsideLayout)
-                
             </aside>
         </div>
     </div>
 </section>
-

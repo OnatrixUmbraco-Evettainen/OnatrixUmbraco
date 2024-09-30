@@ -19,7 +19,7 @@
         height: auto;
 
         @include md {
-            height: 900px;
+            height: 860px;
         }
     }
 
@@ -56,19 +56,6 @@
 
 
 
-//.swiper-wrapper {
-//    height: 950px !important;
-//    border: 1px solid red;
-    
-//}
-
-//.swiper-wrapper.projects-wrapper {
-//    height: 1200px !important;
-//}
-
-//.swiper-slide.projects {
-//    margin: 0!important;
-//}
 
 .swiper-slide img {
 
@@ -145,13 +132,13 @@
 }
 
 .swiper-pagination-bullet:hover {
-    outline: 1px solid var(--clr-gray-400);
+    outline: 1px solid var(--clr-border-400);
     opacity: 1;
 }
 
 .swiper-pagination-bullet-active {
     background-color: var(--clr-neutral);
-    outline: 1px solid var(--clr-gray-400);
+    outline: 1px solid var(--clr-border-400);
     color: var(--clr-primary);
 }
 

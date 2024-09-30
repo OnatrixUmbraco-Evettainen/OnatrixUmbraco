@@ -1,0 +1,18 @@
+﻿@using OnatrixUmbraco.ViewModels
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var formTitle = Model.Content.Value<string>("formTitle");
+
+    var viewModel = new FormQuestionViewModel();
+}
+
+<div class="cquestion-form">
+    <p class="text-lead fw-bold pb-4">@formTitle</p>
+
+    @await Html.PartialAsync("~/views/partials/forms/_formQuestion.cshtml", viewModel)
+
+
+</div>

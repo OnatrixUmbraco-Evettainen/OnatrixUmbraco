@@ -4,13 +4,13 @@
 
 @{
     var selectedImage = Model?.Content.Value<IPublishedContent>("selectedImage")?.Url() ?? null;
-
+    var alternativeText = Model.Content.Value<string>("alternativeText");
     var imageAlignment = Model.Content.Value<string>("imageAlignment");
     var alignment = imageAlignment switch
     {
-        "Start" => "align-self-start",
+        "Left" => "align-self-start",
         "Center" => "align-self-center",
-        "End" => "align-self-end",
+        "Right" => "align-self-end",
         "Full Width" => "",
         _ => ""
     };
@@ -18,4 +18,4 @@
 }
 
 
-<img class="@alignment" src="@selectedImage" >
+<img class="@alignment" src="@selectedImage" alt="@alternativeText" >

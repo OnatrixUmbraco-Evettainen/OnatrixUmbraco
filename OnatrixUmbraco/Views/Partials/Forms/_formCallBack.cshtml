@@ -30,9 +30,9 @@
         <select  class="form-select @(ViewData.ModelState["SelectedOption"]?.Errors.Any() == true ? "is-invalid" : "")"
             asp-for="SelectedOption" id="selectInput">
             <option value="">Please select an option</option>
-            <option value="1">Financial consulting</option>
-            <option value="2">Business strategy</option>
-            <option value="3">Tax planning</option>
+            <option value="Financial consulting">Financial consulting</option>
+            <option value="Business strategy">Business strategy</option>
+            <option value="Tax plannning">Tax planning</option>
         </select>
         <span asp-validation-for="SelectedOption" class="invalid-feedback"></span>
     </div>

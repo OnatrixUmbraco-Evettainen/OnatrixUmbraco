@@ -64,6 +64,13 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual bool AddSpaceToTop => this.Value<bool>(_publishedValueFallback, "addSpaceToTop");
 
 		///<summary>
+		/// Hide Image: Hide Image on Mobile
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[ImplementPropertyType("hideImage")]
+		public virtual bool HideImage => this.Value<bool>(_publishedValueFallback, "hideImage");
+
+		///<summary>
 		/// Alignment: Select how the content within the section should be vertically aligned. If no option is selected, the content will be aligned to the center by default.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]

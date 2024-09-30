@@ -72,7 +72,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string ParagraphAlignment => this.Value<string>(_publishedValueFallback, "paragraphAlignment");
 
 		///<summary>
-		/// Paragraph Size
+		/// Size
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -80,7 +80,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string ParagraphSize => this.Value<string>(_publishedValueFallback, "paragraphSize");
 
 		///<summary>
-		/// Paragraph Style
+		/// Style
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]

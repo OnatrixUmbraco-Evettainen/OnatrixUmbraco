@@ -1,0 +1,34 @@
+﻿@using OnatrixUmbraco.ViewModels
+@model FormQuestionViewModel
+
+
+@using (Html.BeginUmbracoForm("HandleQuestionForm", "FormSurface", FormMethod.Post, new { novalidate = "novalidate", id = "formQuestion" }))
+{
+    <div class="row">
+        <div class="form-group col-12 col-md-6">
+            <label hidden asp-for="Name"></label>
+            <input type="text" class="form-control @(ViewData.ModelState["Name"]?.Errors.Any() == true ? "is-invalid" : "")"
+                   asp-for="Name" id="nameInput" placeholder="Name" />
+            <span asp-validation-for="Name" class="invalid-feedback"></span>
+        </div>
+
+        <div class="form-group col-12 col-md-6">
+            <label hidden asp-for="Email"></label>
+            <input type="email" class="form-control @(ViewData.ModelState["Email"]?.Errors.Any() == true ? "is-invalid" : "")"
+                   asp-for="Email" id="emailInput" placeholder="Email address" />
+            <span asp-validation-for="Email" class="invalid-feedback"></span>
+        </div>
+
+        <div class="form-group col-12">
+            <label hidden asp-for="Question"></label>
+            <textarea asp-for="Question" class="form-control @(ViewData.ModelState["Question"]?.Errors.Any() == true ? "is-invalid" : "")"
+                      id="questionArea" placeholder="Question" rows="5">
+            </textarea>
+            <span asp-validation-for="Question" class="invalid-feedback"></span>
+        </div>
+    </div>
+
+    <div class="form-button">
+        <button class="btn-primary" type="submit">Submit</button>
+    </div>
+}
