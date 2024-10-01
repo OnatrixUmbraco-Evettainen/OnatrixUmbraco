@@ -38,7 +38,7 @@ public class FormSubmissionService(IContentService contentService)
             var supportsGuid = new Guid("4ba3ac30-1071-453e-9b3e-6eee933700f2");
             var supporstId = _contentService.GetById(supportsGuid);
             var supportsItem = _contentService.Create(DateTime.Now.ToString(), supporstId, "supportsItem");
-            supportsItem.SetValue("requestsEmail", form.Email);
+            supportsItem.SetValue("supportsEmail", form.Email);
 
             _contentService.Save(supportsItem);
             _contentService.Publish(supportsItem, []);
@@ -57,7 +57,7 @@ public class FormSubmissionService(IContentService contentService)
         {
             var questionsGuid = new Guid("b7c188fc-445d-4903-b1e5-a44331777745");
             var questionsId = _contentService.GetById(questionsGuid);
-            var questionsItems = _contentService.Create(DateTime.Now.ToString(), questionsId, "questionsItems");
+            var questionsItems = _contentService.Create(DateTime.Now.ToString(), questionsId, "questionsItem");
             questionsItems.SetValue("questionsName", form.Name);
             questionsItems.SetValue("questionsEmail", form.Email);
             questionsItems.SetValue("questionsQuestion", form.Question);

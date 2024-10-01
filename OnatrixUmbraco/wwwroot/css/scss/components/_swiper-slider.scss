@@ -1,10 +1,3 @@
-.hello-world {
-   
-}
-
-
-
-
 .swiper {
     width: 100%;
     height: 100%;
@@ -23,7 +16,6 @@
         }
     }
 
-
     .swiper-slide {
     }
 }
@@ -38,8 +30,6 @@
             height: 1150px;
         }
 
-
-
         .swiper-slide {
             height: max-content!important;
            
@@ -49,17 +39,6 @@
             }
         }
     }
-}
-
-
-
-
-
-
-
-.swiper-slide img {
-
-    
 }
 
 
@@ -87,23 +66,9 @@
 }
 
 
-
-.swiper-button {
-
-    
-    
-}
-
 .swiper-button-disabled {
     color: var(--clr-border-gray);
-
-    
 }
-
-
-
-
-
 
 .swiper-pagination {
     display: flex;
@@ -141,5 +106,3 @@
     outline: 1px solid var(--clr-border-400);
     color: var(--clr-primary);
 }
-
-

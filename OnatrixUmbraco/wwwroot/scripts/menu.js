@@ -1,10 +1,5 @@
 ﻿document.addEventListener('DOMContentLoaded', function () {
-
-    // const btnOpen = document.querySelector('#btnOpen');
-    // const btnClose = document.querySelector('#btnClose');
-
     const btnToggle = document.querySelector('#btnToggle');
-
     const media = window.matchMedia('(max-width: 768px)');
     const mainNavMenu = document.querySelector('.mainnav__menu');
     const main = document.querySelector('main');
@@ -20,8 +15,6 @@
             console.log('is desktop');
             closeMobileMenu();
             mainNavMenu.removeAttribute('inert');
-       
-            
         }
     }
 
@@ -36,18 +29,13 @@
     }
 
 
-
-
     function openMobileMenu() {
         btnToggle.setAttribute('aria-expanded', 'true');
         mainNavMenu.removeAttribute('inert');
         mainNavMenu.removeAttribute('style');
         main.setAttribute('inert', '');
         bodyScrollLockUpgrade.disableBodyScroll(body);
-
         btnToggle.classList.add('open');
-
-        // btnClose.focus();
     }
 
     function closeMobileMenu() {
@@ -55,10 +43,7 @@
         mainNavMenu.setAttribute('inert', '');
         main.removeAttribute('inert');
         bodyScrollLockUpgrade.enableBodyScroll(body);
-        // btnOpen.focus();
-
         btnToggle.classList.remove('open');
-
 
         setTimeout(() => {
             mainNavMenu.style.transition = 'none'
@@ -69,12 +54,7 @@
 
     btnToggle.addEventListener('click', toggleMobileMenu)
 
-    // btnOpen.addEventListener('click', openMobileMenu);
-    // btnClose.addEventListener('click', closeMobileMenu);
-
     media.addEventListener('change', function (e) {
         setupMainNav(e);
     });
-
-
 });

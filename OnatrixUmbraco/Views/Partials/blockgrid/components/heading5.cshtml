@@ -1,0 +1,21 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var headlineText = Model.Content.Value<string>("headlineText");
+    var headlineColor = Model?.Content.Value<string>("headlineColor") ?? null;
+}
+
+@if (!string.IsNullOrEmpty(headlineColor))
+{
+    <h5 style="color: @headlineColor">
+            @headlineText
+    </h5>
+}
+else
+{
+    <h5>
+        @headlineText
+    </h5>
+}

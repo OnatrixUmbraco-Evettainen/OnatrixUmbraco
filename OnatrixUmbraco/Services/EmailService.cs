@@ -62,8 +62,8 @@ public class EmailService : IEmailService
                 </head>
                 <body>
                     <div style='max-width: 600px; margin: 20px auto; padding: 20px; background-color: #ffffff;'>
-                        <div style='background-color: #0046ae; color: white; padding: 10px 20px; text-align: center;'>
-                            <h1>We've Received Your Request</h1>
+                        <div style='background-color: #4F5955; color: #D9C3A9; padding: 10px 20px; text-align: center;'>
+                            <h2>We've Received Your Request</h2>
                         </div>
                          <div style='padding: 20px;'>
                             <p>Hello, {email}</p>
@@ -127,8 +127,8 @@ public class EmailService : IEmailService
                 </head>
                 <body>
                     <div style='max-width: 600px; margin: 20px auto; padding: 20px; background-color: #ffffff;'>
-                        <div style='background-color: #0046ae; color: white; padding: 10px 20px; text-align: center;'>
-                            <h1>We've Received Your Question</h1>
+                        <div style='background-color: #4F5955; color: #D9C3A9; padding: 10px 20px; text-align: center;'>
+                            <h2>We've Received Your Question</h2>
                         </div>
                          <div style='padding: 20px;'>
                             <p>Hello, {email}</p>
@@ -179,12 +179,12 @@ public class EmailService : IEmailService
                 </head>
                 <body>
                     <div style='max-width: 600px; margin: 20px auto; padding: 20px; background-color: #ffffff;'>
-                        <div style='background-color: #0046ae; color: white; padding: 10px 20px; text-align: center;'>
-                            <h1>We've Received Your Request</h1>
+                        <div style='background-color: #4F5955; color: #D9C3A9; padding: 10px 20px; text-align: center;'>
+                            <h2>We've Received Your Request</h2>
                         </div>
                          <div style='padding: 20px;'>
                             <p>Hello, {email}</p>
-                            <p>Thank you for reaching out to our support team. We’ve received your message and will get back to you as soon as possible.</p>
+                            <p>Thank you for reaching out to our support team. We will get back to you as soon as possible.</p>
                             <p>If this request wasn’t made by you, please contact our support team immediately.</p>
                             <p>Thank you!<br>The Support Team</p>
                         </div>

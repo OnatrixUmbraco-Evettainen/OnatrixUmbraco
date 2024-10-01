@@ -11,3 +11,44 @@
         height: var(--dynamic-height, 100%);
     }
 }
+
+.bg-transparent {
+    background-color: transparent;
+}
+
+.bg-white {
+    background-color: var(--clr-neutral);
+}
+
+.bg-dark {
+    background-color: var(--clr-dark);
+}
+
+.bg-gray-1 {
+    background-color: var(--clr-white-100);
+}
+
+.bg-gray-2 {
+    background-color: var(--clr-note1);
+}
+
+.bg-gray-3 {
+    background-color: var(--clr-body-text-100);
+}
+
+.bg-gray-4 {
+    background-color: var(--clr-body-text);
+}
+
+.bg-accent {
+    background-color: var(--clr-accent);
+}
+
+.bg-secondary {
+    background-color: var(--clr-secondary);
+}
+
+.bg-primare {
+    background-color: var(--clr-primary);
+}
+

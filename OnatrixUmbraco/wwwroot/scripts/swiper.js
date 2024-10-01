@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 1.1,  // Number of cards per row
-        spaceBetween: 20,  // Space between the cards
+        slidesPerView: 1.1,
+        spaceBetween: 20, 
        
         pagination: {
             el: ".swiper-pagination",
@@ -15,14 +15,13 @@ document.addEventListener('DOMContentLoaded', function () {
             prevEl: ".custom-prev",
         },
         breakpoints: {
-            // När skärmbredden är större än 768px (t.ex. tablets och desktops)
             768: {
-                slidesPerView: 2,  // Antal slides per rad
+                slidesPerView: 2,
                 slidesPerGroup: 2,
                 grid: {
-                    rows: 2,  // Antal rader för större skärmar
+                    rows: 2,
                 },
-                spaceBetween: 30,  // Space between the cards for larger screens
+                spaceBetween: 30,
             },
             992: {
                 slidesPerView: 3,
@@ -38,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var swiper = new Swiper(".projectsSwiper", {
 
-        slidesPerView: 1.1,  // Number of cards per row
+        slidesPerView: 1.1,
         spaceBetween: 20,
         pagination: {
             el: ".swiper-pagination",
@@ -53,22 +52,14 @@ document.addEventListener('DOMContentLoaded', function () {
         },
 
         breakpoints: {
-            // När skärmbredden är större än 768px (t.ex. tablets och desktops)
             768: {
-                slidesPerView: 1,  // Antal slides per rad
+                slidesPerView: 1, 
                 grid: {
-                    rows: 4,  // Antal rader för större skärmar
+                    rows: 4,
                 },
-                spaceBetween: 30,  // Space between the cards for larger screens
+                spaceBetween: 30, 
             },
             
         }
     });
-
-
-   
-
-
-  
-
 });

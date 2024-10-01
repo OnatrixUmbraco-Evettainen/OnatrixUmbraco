@@ -21,8 +21,6 @@
 
     &__open[aria-expanded='true'] {
         + .mainnav__menu {
-            // translate: 0;
-
             opacity: 1;
         }
     }
@@ -38,8 +36,6 @@
         z-index: 999;
         position: relative;
     }
-
-
 
     &__close {
         display: block;
@@ -73,7 +69,6 @@
             align-items: center;
             width: 100%;
 
-
             i {
                 flex-grow: 0;
             }
@@ -87,7 +82,6 @@
         padding: 0;
         margin-bottom: 2rem;
         text-align: center;
-
 
         @include md {
             flex-direction: row;
@@ -117,7 +111,6 @@
         text-decoration: none;
         transition: color, .2s ease-in-out;
 
-
         &:hover {
             color: var(--clr-secondary);
         }
@@ -135,8 +128,6 @@
         }
     }
 }
-
-
 
 .hamburger {
     width: 25px;
@@ -166,7 +157,6 @@
 .hamburger::after {
     bottom: -8px;
 }
-
 
 .mainnav__open.open .hamburger {
     background-color: transparent;

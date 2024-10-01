@@ -1,4 +1,4 @@
-.projects {
+.projects-details {
     position: relative;
 
     .container {
@@ -8,7 +8,6 @@
             position: sticky;
             top: 1rem;
             height: fit-content;
-
             padding: 2rem .75rem;
 
             @include lg {
@@ -17,5 +16,3 @@
         }
     }
 }
-
-

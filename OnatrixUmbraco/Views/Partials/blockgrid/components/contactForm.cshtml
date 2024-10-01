@@ -4,16 +4,9 @@
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 
 @{
-  
-
     var viewModel = new FormContactViewModel();
 }
 
 <div class="contact-form p-sm-5">
-   
-
-
     @await Html.PartialAsync("~/views/partials/forms/_formContact.cshtml", viewModel)
-
-
 </div>

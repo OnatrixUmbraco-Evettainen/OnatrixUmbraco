@@ -9,7 +9,7 @@
     var tags = Model.Value<IEnumerable<string>>("projectTags") ?? [];
     var created = Model?.CreateDate.ToString("MMMM dd, yyyy"); 
 }
-
+@await Html.PartialAsync("~/Views/Partials/Alerts/_Alerts.cshtml")
 @if (!string.IsNullOrEmpty(ViewBag.Title))
 {
     @await Html.PartialAsync("partials/static/breadcrumbs.cshtml")
@@ -27,7 +27,7 @@
                 @Model.Value("projectContent")
                 @if (tags != null && tags.Any())
                 {
-                    <div class="tags d-flex align-items-center flex-row gap-3 col-12 pt-3 ">
+                    <div class="tags-projects-item d-flex align-items-center flex-row gap-3 col-12 pt-3 ">
                         <h4>Tags</h4>
                         <div class="d-flex flex-wrap gap-2"> 
                             @foreach (var tag in tags)
@@ -46,3 +46,4 @@
         </div>
     </div>
 </section>
+@await Html.GetBlockGridHtmlAsync(Model.BottomLayout)

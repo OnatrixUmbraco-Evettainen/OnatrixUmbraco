@@ -6,24 +6,10 @@
 
 
 @{
-    // var sectionTitle = Model?.Content.Value<string>("sectionTitle") ?? "";
-    // var sectionId = sectionTitle?.ToString().ToLower().Trim().Replace(" ", "-");
-
-    //var spacingTopClass = Model.Content.Value<bool>("addSpaceToTop") ? "padding-t" : "";
-    //var spacingBottomClass = Model.Content.Value<bool>("addSpaceToBottom") ? "padding-b" : "";
-
-
-
-
-
-    //var sectionBackgroundColor = Model.Content.Value<string>("sectionBackgroundColor") ?? "";
     var containerBackgroundImage = Model?.Content.Value<IPublishedContent>("containerBackgroundImage")?.Url() ?? null;    
-
-
     var containsColumns = Model.Areas?.Any(area => area.Any(column => column.Content.ContentType.Alias == "columns")) ?? false;
 
     var placeContentCenter = Model.Content.Value<bool>("placeContentCenter");
-
 
     var createOverlap = Model.Content.Value<bool>("createOverlap");
 
@@ -55,10 +41,6 @@
                     @foreach (var column in area)
                     {
                         @await Html.PartialAsync("~/Views/Partials/blockgrid/components/columns.cshtml", column)
-                        <!-- if (column.Content.ContentType.Alias == "columns")
-                        {
-                            @await Html.PartialAsync("~/Views/Partials/blockgrid/components/columns.cshtml", column)
-                        } -->
                     }
                 </div>
             }
