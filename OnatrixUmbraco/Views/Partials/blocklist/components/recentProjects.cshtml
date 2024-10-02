@@ -6,7 +6,7 @@
 
     var selection = Umbraco.Content(Guid.Parse("810548e7-7402-4c7e-bc7c-84b84598e777"))
     .ChildrenOfType("projectItemTemplate")
-    .Where(x => x.IsVisible()).ToList();
+    .Where(x => x.IsVisible()).OrderByDescending(x => x.CreateDate).Take(4).ToList();
 }
 
 

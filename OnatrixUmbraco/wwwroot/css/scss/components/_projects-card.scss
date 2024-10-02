@@ -38,8 +38,10 @@
         }
 
         .card-icon {
-            align-self: center;
-            width: 25%;
+            
+            
+            flex-grow:1;
+            
 
             i {
                 transition: all .2s ease-in-out;

@@ -642,8 +642,7 @@ select:-webkit-autofill:focus {
   margin: 0;
 }
 .projects-card .projects-content .card-icon {
-  align-self: center;
-  width: 25%;
+  flex-grow: 1;
 }
 .projects-card .projects-content .card-icon i {
   transition: all 0.2s ease-in-out;
