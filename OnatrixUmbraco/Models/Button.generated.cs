@@ -50,14 +50,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Add Space To Bottom
+		/// Add Space To Bottom: Enable to add extra space (margin) at the bottom of the button.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[ImplementPropertyType("addSpaceToBottom")]
 		public virtual bool AddSpaceToBottom => this.Value<bool>(_publishedValueFallback, "addSpaceToBottom");
 
 		///<summary>
-		/// Add Space To Top
+		/// Add Space To Top: Enable to add extra space (margin) at the top of the button.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[ImplementPropertyType("addSpaceToTop")]

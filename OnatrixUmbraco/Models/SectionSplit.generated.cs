@@ -50,21 +50,21 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Add Space To Bottom
+		/// Add Space To Bottom: Enable to add extra space (padding) at the bottom of the section.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[ImplementPropertyType("addSpaceToBottom")]
 		public virtual bool AddSpaceToBottom => this.Value<bool>(_publishedValueFallback, "addSpaceToBottom");
 
 		///<summary>
-		/// Add Space To Top
+		/// Add Space To Top: Enable to add extra space (padding) at the top of the section.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[ImplementPropertyType("addSpaceToTop")]
 		public virtual bool AddSpaceToTop => this.Value<bool>(_publishedValueFallback, "addSpaceToTop");
 
 		///<summary>
-		/// Image Position
+		/// Image Position: Select the alignment of the image in the split section. Choose "Left" to display the image on the left side with text on the right, or "Right" to position the image on the right side with text on the left.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -72,7 +72,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string ImagePosition => this.Value<string>(_publishedValueFallback, "imagePosition");
 
 		///<summary>
-		/// Section Background Color
+		/// Color: Select a background color for the section.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
